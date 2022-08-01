@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const createUser = require("../models/createUser");
-const validator = require("../start/validator");
+const { postValidator } = require("../start/validator");
 const _ = require("lodash");
 const passwordComplexity = require("joi-password-complexity");
 const passwordOptions = {
@@ -13,7 +13,7 @@ const passwordOptions = {
   symbol: 1,
 };
 router.post("/", async (req, res) => {
-  const { error } = validator(
+  const { error } = postValidator(
     _.pick(req.body, ["username", "email", "password"])
   );
   if (error) {
