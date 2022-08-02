@@ -5,34 +5,28 @@ const postSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  author: new mongoose.Types.ObjectId(),
+  author: mongoose.SchemaTypes.ObjectId,
   content: String,
   image: String,
-  likeCount: Number,
+  likeCount: { type: Number, default: 0 },
   comments: {
-    user: new mongoose.Types.ObjectId(),
+    user: mongoose.SchemaTypes.ObjectId,
     body: String,
     date: {
       type: Date,
-      default: Date.now(),
+      default: () => {
+        return this.user && Date.now();
+      },
     },
   },
 });
 const Post = mongoose.model("post", postSchema);
-async function createPost(
-  { title, content, image, author, likeCount },
-  { user, body }
-) {
+async function createPost({ title, content, image }, author) {
   const post = await new Post({
     title: title,
     content: content,
     image: image,
     author: author,
-    likeCount: likeCount,
-    comments: {
-      user: user,
-      body: body,
-    },
   });
   await post.save();
   return post;
