@@ -7,8 +7,8 @@ module.exports = async (req, res, next) => {
   if (!decoded)
     return res.status(403).send("Ro'yhatdan o'tmagan foydalanuvchi!");
   const user = await User.findById(decoded._id);
+  if (!user) return res.status(403).send("Ro'yhatdan o'tmagan foydalanuvchi!");
   req.user = user._id;
 
-  if (!user) return res.status(403).send("Ro'yhatdan o'tmagan foydalanuvchi!");
   next();
 };

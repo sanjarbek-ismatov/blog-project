@@ -1,0 +1,5 @@
+{
+  "level": "error",
+  "message": "Cannot read properties of null (reading '_id') Cannot read properties of null (reading '_id')",
+  "stack": "TypeError: Cannot read properties of null (reading '_id')\n    at module.exports (D:\\project\\web\\github\\social-media-api\\server\\middleware\\auth.js:10:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+}

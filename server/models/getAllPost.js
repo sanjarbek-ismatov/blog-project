@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const User = require("../models/UserModel");
 const postSchema = new mongoose.Schema({
   title: String,
   date: {
@@ -29,6 +30,10 @@ async function createPost({ title, content, image }, author) {
     author: author,
   });
   await post.save();
+  const user = await User.findById(author);
+
+  user.posts.push(post._id);
+  await user.save();
   return post;
 }
 module.exports = Post;
