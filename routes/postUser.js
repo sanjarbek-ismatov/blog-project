@@ -4,6 +4,7 @@ const createUser = require("../models/createUser");
 const { postValidator } = require("../start/validator");
 const _ = require("lodash");
 const passwordComplexity = require("joi-password-complexity");
+const User = require("../models/UserModel");
 const passwordOptions = {
   min: 8,
   max: 26,
@@ -14,7 +15,7 @@ const passwordOptions = {
 };
 router.post("/", async (req, res) => {
   const { error } = postValidator(
-    _.pick(req.body, ["username", "email", "password"])
+    _.pick(req.body, ["username", "lastname", "email", "password"])
   );
   if (error) {
     return res.status(400).send(error.details[0].message);
@@ -25,8 +26,12 @@ router.post("/", async (req, res) => {
   if (result.error) {
     return res.status(400).send(result.error.details[0].message);
   }
+  const findEmail = await User.findOne({ email: req.body.email });
+  if (findEmail) {
+    return res.status(401).send("Email allaqachon olingan!");
+  }
   const newUser = await createUser(req.body);
-  res.status(201).send(_.pick(newUser, ["username", "email"]));
+  res.status(201).send(_.pick(newUser, ["username", "lastname", "email"]));
 });
 
 module.exports = router;

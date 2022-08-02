@@ -4,6 +4,7 @@ module.exports.postValidator = (valid) => {
     username: Joi.string().required().min(3),
     email: Joi.string().required(),
     password: Joi.string().required().min(8),
+    lastname: Joi.string().required().min(3),
   });
   return schema.validate(valid);
 };

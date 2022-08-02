@@ -5,7 +5,7 @@ const _ = require("lodash");
 
 async function createUser(body) {
   const user = new User(
-    _.pick(body, ["username", "email", "password", "isAdmin"])
+    _.pick(body, ["username", "lastname", "email", "password", "isAdmin"])
   );
   const salt = await bcrypt.genSalt();
 
