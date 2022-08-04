@@ -8,6 +8,11 @@ router.get("/", async (req, res) => {
   const result = await Post.find();
   res.status(200).send(result);
 });
+router.get("/:page", async (req, res) => {
+  const { page } = req.params;
+  const result = await Post.find().skip((page - 1) * 10);
+  res.status(200).send(result);
+});
 router.post("/create", auth, async (req, res) => {
   const { error } = poster(req.body);
 
