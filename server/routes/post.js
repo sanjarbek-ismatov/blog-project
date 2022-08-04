@@ -10,7 +10,9 @@ router.get("/", async (req, res) => {
 });
 router.get("/:page", async (req, res) => {
   const { page } = req.params;
-  const result = await Post.find().skip((page - 1) * 10);
+  const result = await Post.find()
+    .skip((page - 1) * 10)
+    .limit(10);
   res.status(200).send(result);
 });
 router.post("/create", auth, async (req, res) => {
