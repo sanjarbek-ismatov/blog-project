@@ -9,6 +9,5 @@ module.exports = async (req, res, next) => {
   const user = await User.findById(decoded._id);
   if (!user) return res.status(403).send("Ro'yhatdan o'tmagan foydalanuvchi!");
   req.user = user._id;
-
   next();
 };
