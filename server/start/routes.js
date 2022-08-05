@@ -6,7 +6,7 @@ const posts = require("../routes/post");
 const getMe = require("../routes/getMe");
 const profile = require("../routes/profile");
 const cors = require("cors");
-const path = require("path");
+
 module.exports = (app) => {
   app.use(cors());
   app.use(express.json());
