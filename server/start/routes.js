@@ -16,7 +16,6 @@ module.exports = (app) => {
   app.use("/api/get/post", posts);
   app.use("/api/profile/me", getMe);
   app.use("/api/profile", profile);
-  app.use(express.static(path.resolve(__dirname, "client/.next/server/pages")));
 
   app.use(error);
 };
