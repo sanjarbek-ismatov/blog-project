@@ -5,12 +5,18 @@ const loginUser = require("../routes/loginUser");
 const posts = require("../routes/post");
 const getMe = require("../routes/getMe");
 const profile = require("../routes/profile");
+const cors = require("cors");
+const path = require("path");
 module.exports = (app) => {
+  app.use(cors());
   app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
   app.use("/api/post", postUser);
   app.use("/api/login", loginUser);
   app.use("/api/get/post", posts);
   app.use("/api/profile/me", getMe);
   app.use("/api/profile", profile);
+  app.use(express.static(path.resolve(__dirname, "client/.next/server/pages")));
+
   app.use(error);
 };
