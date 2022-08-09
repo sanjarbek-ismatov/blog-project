@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "npm i -g nodemon && nodemon server.js",
+    "server": "nodemon server.js",
     "start": "npm run server"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.5.0",
+    "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
     "winston": "^3.8.1",
     "winston-mongodb": "^5.0.7"
