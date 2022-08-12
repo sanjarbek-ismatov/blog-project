@@ -1,8 +1,10 @@
 const express = require("express");
 const Post = require("../models/getAllPost");
-const { poster } = require("../start/validator");
+const { poster, postValidator } = require("../start/validator");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
+const getProfile = require("../start/getProfile");
+const deleteValidator = require("../start/authorValidator");
 const router = express.Router();
 router.get("/", async (req, res) => {
   const result = await Post.find();
@@ -14,6 +16,25 @@ router.get("/:page", async (req, res) => {
     .skip((page - 1) * 10)
     .limit(10);
   res.status(200).send(result);
+});
+router.delete("/delete/:id", auth, async (req, res) => {
+  const { id } = req.params;
+  const user = await getProfile(req.user, null);
+  const result = deleteValidator(id, user);
+
+  if (!result) return res.status(401).send(false);
+
+  await Post.findByIdAndDelete(result);
+  res.send(true);
+});
+router.put("/update/:id", auth, async (req, res) => {
+  const { id } = req.params;
+
+  const user = await getProfile(req.user, null);
+  const result = deleteValidator(id, user);
+  if (!result) return res.status(401).send(false);
+  await Post.findByIdAndUpdate(result, req.body);
+  res.status(200).send(true);
 });
 router.post("/create", auth, async (req, res) => {
   const { error } = poster(req.body);
