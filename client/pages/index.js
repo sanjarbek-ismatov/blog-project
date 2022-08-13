@@ -1,6 +1,7 @@
 import Head from "next/head";
 import style from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
 export async function getStaticProps() {
   const data = await fetch(
     "https://blog-api-uz.herokuapp.com/api/get/post"
@@ -14,16 +15,17 @@ export async function getStaticProps() {
 
 const index = ({ data }) => {
   function $(date) {
-    console.log(date, new Date(date));
     return new Date(date);
   }
   const [hydrate, sethydrate] = useState(false);
+  const [text, setText] = useState("");
   useEffect(() => {
     sethydrate(true);
   }, []);
   if (!hydrate) return null;
   return (
     <div>
+      <Navbar handleChange={(e) => setText(e.target.value)} value={text} />
       <Head>
         <title>MyBlog</title>
         <link
@@ -36,19 +38,21 @@ const index = ({ data }) => {
         />
       </Head>
       <main>
-        {data.map((e, i) => {
-          return (
-            <div key={i} className={style.post}>
-              <img className={style.image} src={e.image} />
-              <div className={style.desc}>
-                <h1>{e.title}</h1>
-                <p>
-                  {$(e.date).toDateString()}, {$(e.date).toLocaleTimeString()}
-                </p>
+        {data
+          .filter((e) => e.toLowerCase().includes(text))
+          .map((e, i) => {
+            return (
+              <div key={i} className={style.post}>
+                <img className={style.image} src={e.image} />
+                <div className={style.desc}>
+                  <h1>{e.title}</h1>
+                  <p>
+                    {$(e.date).toDateString()}, {$(e.date).toLocaleTimeString()}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </main>
     </div>
   );
