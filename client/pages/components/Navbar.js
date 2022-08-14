@@ -2,7 +2,7 @@ import style from "../../styles/Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useRouter from "next/router";
-import { useTheme } from "./hooks/useTheme";
+import useTheme from "./hooks/useTheme";
 const Navbar = ({ handleChange, value }) => {
   const [theme, setTheme] = useTheme();
   const router = useRouter;

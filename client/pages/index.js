@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Image from "next/image";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await fetch(
     "https://blog-api-uz.herokuapp.com/api/get/post"
   ).then((res) => res.json());
