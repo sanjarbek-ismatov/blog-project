@@ -13,7 +13,7 @@
 
 ```shell
 git clone https://github.com/sanjarbek-ismatov/blog-project.git
-cd social-media-api
+cd blog-project/server
 npm install
 npm run dev
 
