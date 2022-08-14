@@ -25,6 +25,7 @@ const Navbar = ({ handleChange, value }) => {
         <img
           className={style.profile}
           src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          title="profile"
         />
         {/* <FontAwesomeIcon className={style.icon} icon={faGear} /> */}
         <svg
