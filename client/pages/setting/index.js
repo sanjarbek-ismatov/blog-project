@@ -24,14 +24,13 @@ const index = () => {
       <main className={style.main}>
         <div className={style.left}>
           <ul className={style.ul}>
-            <li>Mavzu</li>
-            <li>Foydalanish qobilyati</li>
+            <li>Dark theme </li>
           </ul>
         </div>
         <div className={style.right}>
           <ul className={style.ul}>
             <li>
-              Mavzu:{" "}
+              {" "}
               <Switch
                 onChange={() =>
                   localStorage.theme === "light"
@@ -40,14 +39,6 @@ const index = () => {
                 }
                 checked={checked}
               />
-            </li>
-            <li>
-              Font o'lchami:{" "}
-              <select className={style.select}>
-                <option value="smaller">Kichkina</option>
-                <option value="normal">Normal</option>
-                <option value="bigger">Katta</option>
-              </select>
             </li>
           </ul>
         </div>
