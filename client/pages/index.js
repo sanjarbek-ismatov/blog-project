@@ -2,6 +2,7 @@ import Head from "next/head";
 import style from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const data = await fetch(
@@ -14,7 +15,7 @@ export async function getStaticProps() {
   };
 }
 
-const index = ({ data }) => {
+const Index = ({ data }) => {
   function $(date) {
     return new Date(date);
   }
@@ -45,7 +46,14 @@ const index = ({ data }) => {
           .map((e, i) => {
             return (
               <div key={i} className={style.post}>
-                <img className={style.image} src={e.image} />
+                <Image
+                  loader={() => e.image}
+                  src={e.image}
+                  className={style.image}
+                  width={1000}
+                  height={600}
+                  alt="blog image"
+                />
                 <div className={style.desc}>
                   <h1>{e.title}</h1>
                   <p>
@@ -60,4 +68,4 @@ const index = ({ data }) => {
   );
 };
 
-export default index;
+export default Index;

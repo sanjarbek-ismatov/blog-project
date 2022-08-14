@@ -3,13 +3,7 @@ import Head from "next/head";
 import style from "../../styles/Setting.module.css";
 import { useTheme } from "../components/hooks/useTheme";
 import Switch from "react-switch";
-const index = () => {
-  // const checked = () => {
-  //   if (typeof window !== "undefined") {
-  //     return localStorage.theme === "dark" ? true : false;
-  //   }
-  // };
-  // console.log(checked);
+const Index = () => {
   const [theme, setTheme] = useTheme();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
@@ -47,4 +41,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
