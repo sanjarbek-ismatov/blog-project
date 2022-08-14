@@ -1,3 +1,8 @@
 # blog-project
 
-# updated
+# USED
+- MERN
+
+# SETUP
+ server/
+ client/
