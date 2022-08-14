@@ -17,6 +17,7 @@ const Navbar = ({ handleChange, value }) => {
           placeholder="Maqolani qidiring"
           onChange={handleChange}
           value={value}
+          autoComplete="off"
         />
       </div>
       <h1 className={style.h1}>Mening Maqolam</h1>

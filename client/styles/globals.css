@@ -26,3 +26,7 @@ div[theme="dark"] {
   background-color: #212121;
   color: #fff;
 }
+dev[theme="light"] {
+  background-color: #fff;
+  color: #212121;
+}
