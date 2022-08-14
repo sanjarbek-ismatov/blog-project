@@ -16,7 +16,8 @@
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hydration-provider": "^1.0.0"
+    "react-hydration-provider": "^1.0.0",
+    "react-switch": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "8.21.0",

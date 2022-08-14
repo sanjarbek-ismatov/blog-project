@@ -2,10 +2,12 @@ import style from "../../styles/Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useRouter from "next/router";
+import { useTheme } from "./hooks/useTheme";
 const Navbar = ({ handleChange, value }) => {
+  const [theme, setTheme] = useTheme();
   const router = useRouter;
   return (
-    <nav className={style.nav}>
+    <nav className={theme === "light" ? style.navLight : style.navDark}>
       <div className={style.inputContainer}>
         <FontAwesomeIcon icon={faSearch} className={style.searchIcon} />
         <input
@@ -27,12 +29,12 @@ const Navbar = ({ handleChange, value }) => {
         <svg
           onClick={() => router.push("/setting")}
           xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-settings"
+          className="icon icon-tabler icon-tabler-settings"
           width="44"
           height="44"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="#2c3e50"
+          stroke="red"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"

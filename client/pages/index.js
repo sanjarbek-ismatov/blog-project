@@ -23,15 +23,10 @@ const index = ({ data }) => {
 
   useEffect(() => {
     sethydrate(true);
-    if (typeof window !== "undefined") {
-      localStorage.getItem("theme")
-        ? ""
-        : localStorage.setItem("theme", "light");
-    }
   }, []);
   if (!hydrate) return null;
   return (
-    <main theme={localStorage.getItem("theme")}>
+    <main>
       <Navbar handleChange={(e) => setText(e.target.value)} value={text} />
       <Head>
         <title>MyBlog</title>

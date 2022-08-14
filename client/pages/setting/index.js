@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import style from "../../styles/Setting.module.css";
+import { useTheme } from "../components/hooks/useTheme";
+import Switch from "react-switch";
 const index = () => {
+  // const checked = () => {
+  //   if (typeof window !== "undefined") {
+  //     return localStorage.theme === "dark" ? true : false;
+  //   }
+  // };
+  // console.log(checked);
+  const [theme, setTheme] = useTheme();
+  const [checked, setChecked] = useState(false);
+  useEffect(() => {
+    setChecked(localStorage.theme === "dark" ? true : false);
+  }, [theme]);
+
   return (
     <div>
       <Head>
@@ -12,17 +26,20 @@ const index = () => {
           <ul className={style.ul}>
             <li>Mavzu</li>
             <li>Foydalanish qobilyati</li>
-            <li>Profile</li>
           </ul>
         </div>
         <div className={style.right}>
           <ul className={style.ul}>
             <li>
               Mavzu:{" "}
-              <select className={style.select}>
-                <option value="light">Yorug'</option>
-                <option value="dark">Qorong'u</option>
-              </select>
+              <Switch
+                onChange={() =>
+                  localStorage.theme === "light"
+                    ? setTheme("dark")
+                    : setTheme("light")
+                }
+                checked={checked}
+              />
             </li>
             <li>
               Font o'lchami:{" "}
