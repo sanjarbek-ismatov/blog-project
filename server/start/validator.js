@@ -9,6 +9,7 @@ module.exports.postValidator = (valid) => {
   });
   return schema.validate(valid);
 };
+//
 module.exports.poster = (valid) => {
   const schema = Joi.object({
     title: Joi.string().required().min(1),
