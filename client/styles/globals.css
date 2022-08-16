@@ -32,3 +32,6 @@ dev[theme="light"] {
   color: #212121;
   min-height: 100vh;
 }
+li {
+  margin: 10px;
+}

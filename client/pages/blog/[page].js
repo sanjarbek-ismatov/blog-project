@@ -1,15 +1,15 @@
 import Head from "next/head";
-import style from "../styles/Home.module.css";
+import style from "../../styles/Home.module.css";
 import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import Image from "next/image";
-import Panigation from "./components/Panigation";
+import Panigation from "../components/Panigation";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
     `https://blog-api-uz.herokuapp.com/api/get/post/${page}`
   ).then((res) => res.json());
-  console.log(data.length);
+
   return {
     props: {
       data: data,
@@ -74,7 +74,7 @@ const Index = ({ data }) => {
             })
         )}
       </main>
-      {/* <Panigation count={10} /> */}
+      <Panigation data={data} />
     </main>
   );
 };
