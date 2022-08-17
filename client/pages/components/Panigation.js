@@ -9,8 +9,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import usePage from "./getPage";
 const Panigation = () => {
-  const { page, data } = usePage();
-  console.log(page);
+  const { pageAll, data } = usePage();
+
   const router = useRouter();
   const path = router.asPath.split("/")[2];
 
@@ -20,7 +20,7 @@ const Panigation = () => {
     }
   };
   const right = () => {
-    if (path < page) {
+    if (path < pageAll) {
       router.push(`/blog/${parseInt(path) + 1}`);
     }
   };
@@ -35,7 +35,7 @@ const Panigation = () => {
             </a>
           </li>
           {data &&
-            data.map((e, i) => {
+            pageAll.map((e, i) => {
               return (
                 <li>
                   <Link href={"/blog/" + (i + 1)}>
