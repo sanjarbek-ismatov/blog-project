@@ -29,7 +29,7 @@ const Panigation = () => {
       {}
       <div className={style.panigation}>
         <ul className={style.ul}>
-          <li>
+          <li className={style.li}>
             <a onClick={left}>
               <FontAwesomeIcon icon={faChevronLeft} />
             </a>
@@ -37,16 +37,17 @@ const Panigation = () => {
           {data &&
             pageAll.map((e, i) => {
               return (
-                <li key={i}>
+                <li
+                  key={i}
+                  className={path - 1 === i ? style.active : style.li}
+                >
                   <Link href={"/blog/" + (i + 1)}>
-                    <a className={path - 1 === i ? style.active : ""}>
-                      {i + 1}
-                    </a>
+                    <a>{i + 1}</a>
                   </Link>
                 </li>
               );
             })}
-          <li>
+          <li className={style.li}>
             <a onClick={right}>
               <FontAwesomeIcon icon={faChevronRight} />
             </a>
