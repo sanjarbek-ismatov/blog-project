@@ -1,0 +1,13 @@
+.panigation {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+.ul {
+  display: flex;
+  list-style: none;
+  width: 100px;
+}
+.active {
+  background-color: red;
+}

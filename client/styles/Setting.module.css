@@ -1,0 +1,13 @@
+.main {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  margin: auto;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.ul {
+  list-style: none;
+}
