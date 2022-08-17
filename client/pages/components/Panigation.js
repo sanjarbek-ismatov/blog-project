@@ -37,8 +37,8 @@ const Panigation = () => {
           {data &&
             pageAll.map((e, i) => {
               return (
-                <li>
-                  <Link key={i} href={"/blog/" + (i + 1)}>
+                <li key={i}>
+                  <Link href={"/blog/" + (i + 1)}>
                     <a className={path - 1 === i ? style.active : ""}>
                       {i + 1}
                     </a>
