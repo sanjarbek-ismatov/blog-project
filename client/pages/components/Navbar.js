@@ -31,7 +31,7 @@ const Navbar = ({ handleChange, value }) => {
         <svg
           onClick={() => router.push("/setting")}
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-settings"
+          className={style.icon}
           width="44"
           height="44"
           viewBox="0 0 24 24"
