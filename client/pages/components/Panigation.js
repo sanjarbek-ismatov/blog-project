@@ -17,7 +17,6 @@ const Panigation = () => {
   const left = () => {
     if (path > 1) {
       router.push(`/blog/${path - 1}`);
-      console.log(path, pageAll);
     }
   };
   const right = () => {
