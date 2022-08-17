@@ -7,7 +7,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import usePage from "./getPage";
+import usePage from "./hooks/getPage";
 const Panigation = () => {
   const { pageAll, data } = usePage();
 
