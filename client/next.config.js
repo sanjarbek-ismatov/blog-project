@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     domains: ["wallpaperset.com"],
   },
+
+ 
 };
 
 module.exports = nextConfig;
+
