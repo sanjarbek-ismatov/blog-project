@@ -22,7 +22,7 @@ const Panigation = () => {
   const right = () => {
     if (path < pageAll) {
       router.push(`/blog/${parseInt(path) + 1}`);
-      console.log(path, pageAll)
+      alert(path, pageAll)
     }
   };
   return (
