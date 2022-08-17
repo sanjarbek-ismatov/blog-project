@@ -17,12 +17,12 @@ const Panigation = () => {
   const left = () => {
     if (path > 1) {
       router.push(`/blog/${path - 1}`);
+      console.log(path, pageAll);
     }
   };
   const right = () => {
-    if (path < pageAll) {
+    if (path < pageAll.length) {
       router.push(`/blog/${parseInt(path) + 1}`);
-      alert(path, pageAll)
     }
   };
   return (
