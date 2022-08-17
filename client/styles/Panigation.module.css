@@ -12,7 +12,9 @@
   background-color: red;
   padding: 7px 15px;
   border-radius: 50%;
+  cursor: pointer;
 }
 .li {
   padding: 7px 15px;
+  cursor: pointer;
 }
