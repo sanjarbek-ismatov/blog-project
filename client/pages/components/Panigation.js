@@ -9,7 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import usePage from "./hooks/getPage";
 const Panigation = () => {
-  const { pageAll, data } = usePage();
+  const [data, pageAll] = usePage();
 
   const router = useRouter();
   const path = router.asPath.split("/")[2];

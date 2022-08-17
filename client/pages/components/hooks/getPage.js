@@ -35,7 +35,7 @@ const usePage = () => {
     }
   }, [count]);
 
-  return { data, pageAll };
+  return [data, pageAll];
 };
 // (datas.length % 10) === 0 ? datas.length / 10 : (datas.length / 10) + 1
 export default usePage;
