@@ -55,9 +55,10 @@ const Index = ({ data }) => {
             .map((e, i) => {
               return (
                 <Link
+                  key={i}
                   href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
                 >
-                  <div key={i} className={style.post}>
+                  <div className={style.post}>
                     <Image
                       loader={() => e.image}
                       src={e.image}
