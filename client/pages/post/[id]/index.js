@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { handleLike } from "./_handleLike";
+import handleLike from "./_handleLike";
 const Post = ({ data }) => {
   const [hydrate, sethydrate] = useState(false);
   useEffect(() => {

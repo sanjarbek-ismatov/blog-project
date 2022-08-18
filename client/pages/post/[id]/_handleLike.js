@@ -1,4 +1,4 @@
-export async function handleLike(id, oldcount) {
+export default async function handleLike(id, oldcount) {
   await fetch(`https://blog-api-uz.herokuapp.com/api/get/post/update/${id}`, {
     method: "PUT",
     body: JSON.stringify({
