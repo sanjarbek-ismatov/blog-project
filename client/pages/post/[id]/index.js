@@ -4,8 +4,23 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import handleLike from "./_handleLike";
+
 const Post = ({ data }) => {
+  async function handleLike(id, oldcount) {
+    await fetch(`https://blog-api-uz.herokuapp.com/api/get/post/update/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        likeCount: 2,
+      }),
+      headers: new Headers({
+        "x-token": "dfdfdsfsdfsfff",
+        "Content-type": "application/json",
+      }),
+    })
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  }
+
   const [hydrate, sethydrate] = useState(false);
   useEffect(() => {
     sethydrate(true);
