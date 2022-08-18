@@ -32,6 +32,7 @@ router.put("/update/:id", auth, async (req, res) => {
   const { id } = req.params;
 
   const user = await getProfile(req.user, null);
+
   const result = authorValidator(id, user);
   if (!result) return res.status(401).send(false);
   await Post.findByIdAndUpdate(result, req.body);

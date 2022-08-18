@@ -1,9 +1,10 @@
 import Head from "next/head";
-import style from "../../styles/Home.module.css";
+import style from "../../../styles/Home.module.css";
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 import Image from "next/image";
-import Panigation from "../components/Panigation";
+import Panigation from "../../components/Panigation";
+import Link from "next/link";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
@@ -53,23 +54,27 @@ const Index = ({ data }) => {
             .filter((e) => e.title.toLowerCase().includes(text))
             .map((e, i) => {
               return (
-                <div key={i} className={style.post}>
-                  <Image
-                    loader={() => e.image}
-                    src={e.image}
-                    className={style.image}
-                    width={1000}
-                    height={600}
-                    alt="blog image"
-                  />
-                  <div className={style.desc}>
-                    <h1>{e.title}</h1>
-                    <p>
-                      {$(e.date).toDateString()},{" "}
-                      {$(e.date).toLocaleTimeString()}
-                    </p>
+                <Link
+                  href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
+                >
+                  <div key={i} className={style.post}>
+                    <Image
+                      loader={() => e.image}
+                      src={e.image}
+                      className={style.image}
+                      width={1000}
+                      height={600}
+                      alt="blog image"
+                    />
+                    <div className={style.desc}>
+                      <h1>{e.title}</h1>
+                      <p>
+                        {$(e.date).toDateString()},{" "}
+                        {$(e.date).toLocaleTimeString()}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })
         )}

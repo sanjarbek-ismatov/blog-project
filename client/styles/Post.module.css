@@ -1,0 +1,28 @@
+.postImage {
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
+}
+.image {
+  width: 100% !important;
+}
+.post {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  text-align: justify;
+}
+.h1,
+.p {
+  padding: 30px 0;
+}
+.lowerContent {
+  text-align: center;
+}
+.icon {
+  font-size: 30px;
+  padding: 0 5px;
+}
