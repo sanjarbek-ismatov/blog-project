@@ -85,7 +85,11 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       data: data,
-      metadata: data[0]
+      metadata: {
+        title: data[0].title,
+        image: data[0].image,
+        
+      }
     },
   };
 }
