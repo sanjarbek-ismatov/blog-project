@@ -8,7 +8,10 @@ import Link from "next/link";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
-    `https://blog-api-uz.herokuapp.com/api/get/post/${page}`
+    `https://blog-api-uz.herokuapp.com/api/get/post/${page}`,
+    {
+      mode: "no-cors",
+    }
   ).then((res) => res.json());
 
   return {

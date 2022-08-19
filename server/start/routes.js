@@ -8,13 +8,7 @@ const profile = require("../routes/profile");
 const cors = require("cors");
 
 module.exports = (app) => {
-  app.use(
-    cors({
-      origin: "https://my-blog-uz.vercel.app/",
-      optionsSuccessStatus: 200,
-      methods: "GET, PUT, POST, DELETE",
-    })
-  );
+  app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/api/post", postUser);
