@@ -7,7 +7,6 @@ import NetworkMessage from "../../components/NetworkMessage";
 import Axios from "axios";
 import Head from "next/head";
 const Post = ({ data }) => {
-  if (!data) return <NetworkMessage />;
   // async function handleLike(id, oldcount) {
   //   await Axios.put(
   //     `https://blog-api-uz.herokuapp.com/api/get/post/update/${id}`,
@@ -31,6 +30,7 @@ const Post = ({ data }) => {
     sethydrate(true);
   }, []);
   if (!hydrate) return null;
+  if (!data) return <NetworkMessage />;
   return (
     <>
       <Head>
