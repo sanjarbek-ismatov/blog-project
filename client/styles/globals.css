@@ -35,3 +35,20 @@ dev[theme="light"] {
 li {
   margin: 10px;
 }
+@keyframes onload {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.wellcome-screen {
+  text-align: center;
+}
+.wellcomeText {
+  margin: "-100px auto 30px";
+  font-size: "50px";
+}
