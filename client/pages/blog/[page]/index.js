@@ -61,23 +61,25 @@ const Index = ({ data }) => {
                   key={i}
                   href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
                 >
-                  <div className={style.post}>
-                    <Image
-                      loader={() => e.image}
-                      src={e.image}
-                      className={style.image}
-                      width={1000}
-                      height={600}
-                      alt="blog image"
-                    />
-                    <div className={style.desc}>
-                      <h1>{e.title}</h1>
-                      <p>
-                        {$(e.date).toDateString()},{" "}
-                        {$(e.date).toLocaleTimeString()}
-                      </p>
+                  <a>
+                    <div className={style.post}>
+                      <Image
+                        loader={() => e.image}
+                        src={e.image}
+                        className={style.image}
+                        width={1000}
+                        height={600}
+                        alt="blog image"
+                      />
+                      <div className={style.desc}>
+                        <h1>{e.title}</h1>
+                        <p>
+                          {$(e.date).toDateString()},{" "}
+                          {$(e.date).toLocaleTimeString()}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </Link>
               );
             })
