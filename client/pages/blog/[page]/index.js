@@ -26,6 +26,7 @@ const Index = ({ data }) => {
   function $(date) {
     return new Date(date);
   }
+  const { page } = useRouter().query;
   const [hydrate, sethydrate] = useState(false);
   const [text, setText] = useState("");
 
@@ -33,7 +34,7 @@ const Index = ({ data }) => {
     sethydrate(true);
   }, []);
   if (!hydrate) return null;
-  const { page } = useRouter().query;
+
   return (
     <main>
       <Navbar handleChange={(e) => setText(e.target.value)} value={text} />
