@@ -1,0 +1,16 @@
+.post {
+  max-width: 800px;
+  width: 100%;
+  margin: 50px auto 10px;
+  cursor: pointer;
+}
+.image {
+  width: 100%;
+}
+.desc {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px auto;
+}

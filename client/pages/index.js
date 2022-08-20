@@ -1,25 +1,108 @@
 import React from "react";
-import { Nav, Button, NavigationBar, Main, H1, H2 } from "../components/styled";
+import style from "../styles/Home.module.css";
+import Link from "next/link";
+import Head from "next/head";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAt,
+  faBookOpen,
+  faRightFromBracket,
+  faSquarePlus,
+} from "@fortawesome/free-solid-svg-icons";
 const Index = () => {
   return (
     <div>
+      <Head>
+        <title>MyBlog - bosh sahifa</title>
+        <meta name="title" content="MyBlog - bosh sahifa" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="MyBlog - foydalanuvchilar tomonidan maqola yaratuvchi bepul va foydali platforma"
+        />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://my-blog-uz.vercel.app" />
+        <meta property="og:title" content="MyBlog - bosh sahifa" />
+        <meta
+          property="og:description"
+          content="MyBlog - foydalanuvchilar tomonidan maqola yaratuvchi bepul va foydali platforma"
+        />
+        <meta
+          property="og:image"
+          content="https://media.istockphoto.com/photos/bloggingblog-concepts-ideas-with-worktable-picture-id922745190?k=20&m=922745190&s=612x612&w=0&h=TqsA7NeMPYXmK1TY5dsbdIsczaUK0OgguehHWdSUqL8="
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://my-blog-uz.vercel.app" />
+        <meta property="twitter:title" content="MyBlog - bosh sahifa" />
+        <meta
+          property="twitter:description"
+          content="MyBlog - foydalanuvchilar tomonidan maqola yaratuvchi bepul va foydali platforma"
+        />
+        <meta
+          property="twitter:image"
+          content="https://media.istockphoto.com/photos/bloggingblog-concepts-ideas-with-worktable-picture-id922745190?k=20&m=922745190&s=612x612&w=0&h=TqsA7NeMPYXmK1TY5dsbdIsczaUK0OgguehHWdSUqL8="
+        />
+        <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
+      </Head>
       <header>
-        <Nav>
+        <nav className={style.nav}>
           <h1>My Blog</h1>
-          <NavigationBar>
-            <Button>Ro'yhatdan o'tish</Button>
-            <Button>Tizimga kirish</Button>
-          </NavigationBar>
-        </Nav>
+          <div className={style.div}>
+            <Link href="/login">
+              <a>
+                <button className={style.button}>
+                  {" "}
+                  <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
+                  Ro'yhatdan o'tish
+                </button>
+              </a>
+            </Link>
+            <Link href="/register">
+              <a>
+                <button className={style.button}>
+                  {" "}
+                  <FontAwesomeIcon
+                    className={style.icon}
+                    icon={faRightFromBracket}
+                  />{" "}
+                  Tizimga kirish
+                </button>
+              </a>
+            </Link>
+          </div>
+        </nav>
       </header>
       <main>
-        <Main>
-          <div style={{ textAlign: "center" }}>
-            <H1>Assalomu alaykum</H1>
+        <main className={style.main}>
+          <div className={style.mainDiv}>
+            <h1 className={style.h1}>Assalomu alaykum</h1>
             <hr />
-            <H2>My blog platformasiga xush kelibsiz!</H2>
+            <h2 className={style.h2}>My blog platformasiga xush kelibsiz!</h2>
+            <div className={style.buttons}>
+              <Link href="/blog/1">
+                <a>
+                  <button className={style.button}>
+                    <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
+                    Maqolani o'qish
+                  </button>
+                </a>
+              </Link>
+              <Link href="/post">
+                <a>
+                  <button className={style.button}>
+                    <FontAwesomeIcon
+                      className={style.icon}
+                      icon={faSquarePlus}
+                    />{" "}
+                    Maqola yaratish
+                  </button>
+                </a>
+              </Link>
+            </div>
           </div>
-        </Main>
+        </main>
       </main>
     </div>
   );

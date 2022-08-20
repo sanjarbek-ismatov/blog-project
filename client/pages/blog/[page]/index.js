@@ -1,5 +1,5 @@
 import Head from "next/head";
-import style from "../../../styles/Home.module.css";
+import style from "../../../styles/Blog.module.css";
 import { useState, useEffect } from "react";
 import Navbar from "../../../components/Navbar";
 import Image from "next/image";

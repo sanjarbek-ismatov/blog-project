@@ -1,16 +1,58 @@
-.post {
-  max-width: 800px;
-  width: 100%;
-  margin: 50px auto 10px;
-  cursor: pointer;
-}
-.image {
-  width: 100%;
-}
-.desc {
+.nav {
+  height: 70px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
-  margin: 5px auto;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+}
+.button {
+  font-size: 17px;
+  padding: 7px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: color, background 0.3s ease;
+  margin: 0 5px;
+}
+.button:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.mainDiv {
+  text-align: center;
+}
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+@keyframes onload {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.h1 {
+  margin: -100px auto 30px;
+  font-size: 50px;
+  animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.h2 {
+  margin-top: 30px;
+  animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.buttons {
+  margin-top: 30px;
+}
+.icon {
+  height: 15px;
 }
