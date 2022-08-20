@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import style from "../../styles/Setting.module.css";
-import useTheme from "../components/hooks/useTheme";
+import useTheme from "../../components/hooks/useTheme";
 import Switch from "react-switch";
 const Index = () => {
   const [theme, setTheme] = useTheme();

@@ -1,4 +1,4 @@
-import style from "../../styles/Navbar.module.css";
+import style from "../styles/Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useRouter from "next/router";

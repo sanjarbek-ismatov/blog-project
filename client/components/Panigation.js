@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import style from "../../styles/Panigation.module.css";
+import style from "../styles/Panigation.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
