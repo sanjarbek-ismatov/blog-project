@@ -5,6 +5,7 @@ import Navbar from "../../../components/Navbar";
 import Image from "next/image";
 import Panigation from "../../../components/Panigation";
 import Link from "next/link";
+import { useRouter } from "next/router";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
@@ -32,20 +33,12 @@ const Index = ({ data }) => {
     sethydrate(true);
   }, []);
   if (!hydrate) return null;
-
+  const { page } = useRouter().query;
   return (
     <main>
       <Navbar handleChange={(e) => setText(e.target.value)} value={text} />
       <Head>
-        <title>MyBlog</title>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        />
+        <title>MyBlog {page} sahifa</title>
       </Head>
       <main>
         {data.length === 0 ? (

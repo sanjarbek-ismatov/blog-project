@@ -5,7 +5,9 @@
   align-items: center;
   max-width: 1200px;
   width: 100%;
+
   margin: auto;
+  flex-wrap: wrap;
 }
 .button {
   font-size: 17px;
@@ -30,6 +32,28 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+@media (max-width: 630px) {
+  .nav {
+    justify-content: center;
+  }
+
+  .div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-items: center;
+  }
+  .button {
+    margin: 10px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .nav {
+    padding: 0 50px;
+  }
 }
 @keyframes onload {
   0% {

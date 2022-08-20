@@ -7,24 +7,6 @@ import NetworkMessage from "../../../components/NetworkMessage";
 import Axios from "axios";
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
-  // async function handleLike(id, oldcount) {
-  //   await Axios.put(
-  //     `https://blog-api-uz.herokuapp.com/api/get/post/update/${id}`,
-
-  //     {
-  //       likeCount: oldcount + 1,
-  //     },
-  //     {
-  //       headers: {
-  //         "x-token":
-  //           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmVkMmZmYmEwMGM1MWUzZjkxOGJhYjMiLCJpYXQiOjE2NjA4ODgwMTZ9.REok0nqR6yPFh19SYrvpb88s9QrFqx034Upm9Ybps0U",
-  //       },
-  //     }
-  //   );
-  // }
-  // useEffect(() => {
-  //   handleLike(data[0]._id, data[0].likeCount);
-  // }, []);
   const [hydrate, sethydrate] = useState(false);
   useEffect(() => {
     sethydrate(true);
@@ -38,10 +20,7 @@ const Post = ({ data, metadata }) => {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content="My blog -  maqolalar sayti" />
         <meta property="og:image" content={metadata.image} />
-        <link
-          rel="shortcut icon"
-          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0K1yHyIucYxVo-_ggCWuNU-Vnhtsh0GqZXYg6sQ-ksTd0tkRJ38mRkNAhLfsRP-RbDg&usqp=CAU"
-        />
+        <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
       {data.map((e, i) => (
         <div key={i} className={style.post}>

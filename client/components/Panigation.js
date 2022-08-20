@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import style from "../styles/Panigation.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import usePage from "./hooks/getPage";
 const Panigation = () => {
@@ -30,9 +27,7 @@ const Panigation = () => {
       <div className={style.panigation}>
         <ul className={style.ul}>
           <li className={style.li}>
-            <a onClick={left}>
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </a>
+            <a onClick={left}>{"<"}</a>
           </li>
           {data &&
             pageAll.map((e, i) => {
@@ -48,9 +43,7 @@ const Panigation = () => {
               );
             })}
           <li className={style.li}>
-            <a onClick={right}>
-              <FontAwesomeIcon icon={faChevronRight} />
-            </a>
+            <a onClick={right}>{">"}</a>
           </li>
         </ul>
       </div>
