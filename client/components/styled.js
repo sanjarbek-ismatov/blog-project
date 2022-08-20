@@ -15,7 +15,7 @@ export const Button = styled.button`
   border-radius: 30px;
   cursor: pointer;
   border: 1px solid #fff;
-  transition: 0.3s ease;
+  transition: color, background 0.3s ease;
   margin: 0 5px;
   &:hover {
     background-color: transparent;
@@ -47,9 +47,9 @@ const onload = keyframes`
 export const H1 = styled.h1`
   margin: -100px auto 30px;
   font-size: 50px;
-  animation: ${onload} 0.5s ease;
+  animation: ${onload} 1.5s ease;
 `;
 export const H2 = styled.h2`
   margin-top: 30px;
-  animation: ${onload} 0.5s ease;
+  animation: ${onload} 1.5s ease;
 `;
