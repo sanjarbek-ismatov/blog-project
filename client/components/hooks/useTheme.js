@@ -4,7 +4,7 @@ const useTheme = () => {
   const [theme, setTheme] = useState(
     typeof window !== "undefined" && localStorage.getItem("theme")
       ? localStorage.getItem("theme")
-      : "light"
+      : "dark"
   );
   useEffect(() => {
     document.getElementById("__next").setAttribute("theme", theme);
