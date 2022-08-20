@@ -2,6 +2,7 @@ import React from "react";
 import style from "../styles/Home.module.css";
 import Link from "next/link";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAt,
@@ -12,10 +13,10 @@ import {
 const Index = () => {
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>MyBlog - bosh sahifa</title>
         <meta name="title" content="MyBlog - bosh sahifa" />
-
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="MyBlog - bosh sahifa" />
         <meta
           property="og:description"
@@ -27,7 +28,11 @@ const Index = () => {
         />
 
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
-      </Head>
+      </Head> */}
+      <NextSeo
+        title="MyBlog - bosh sahifa"
+        description="MyBlog - foydalanuvchilar tomonidan maqola yaratuvchi bepul va foydali platforma"
+      />
       <header>
         <nav className={style.nav}>
           <h1>My Blog</h1>
