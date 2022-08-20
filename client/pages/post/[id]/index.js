@@ -3,7 +3,7 @@ import style from "../../../styles/Post.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import NetworkMessage from "../../components/NetworkMessage";
+import NetworkMessage from "../../../components/NetworkMessage";
 import Axios from "axios";
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
@@ -38,7 +38,10 @@ const Post = ({ data, metadata }) => {
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content="My blog -  maqolalar sayti" />
         <meta property="og:image" content={metadata.image} />
-        <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0K1yHyIucYxVo-_ggCWuNU-Vnhtsh0GqZXYg6sQ-ksTd0tkRJ38mRkNAhLfsRP-RbDg&usqp=CAU" />
+        <link
+          rel="shortcut icon"
+          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0K1yHyIucYxVo-_ggCWuNU-Vnhtsh0GqZXYg6sQ-ksTd0tkRJ38mRkNAhLfsRP-RbDg&usqp=CAU"
+        />
       </Head>
       {data.map((e, i) => (
         <div key={i} className={style.post}>
@@ -88,8 +91,7 @@ export async function getServerSideProps({ params }) {
       metadata: {
         title: data[0].title,
         image: data[0].image,
-        
-      }
+      },
     },
   };
 }

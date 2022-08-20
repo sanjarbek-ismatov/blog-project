@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Button, NavigationBar, Main, H1, H2 } from "./components/styled";
+import { Nav, Button, NavigationBar, Main, H1, H2 } from "../components/styled";
 const Index = () => {
   return (
     <div>

@@ -1,9 +1,9 @@
 import Head from "next/head";
 import style from "../../../styles/Home.module.css";
 import { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../../components/Navbar";
 import Image from "next/image";
-import Panigation from "../../components/Panigation";
+import Panigation from "../../../components/Panigation";
 import Link from "next/link";
 export async function getServerSideProps({ params }) {
   const { page } = params;
