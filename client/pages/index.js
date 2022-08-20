@@ -1,15 +1,15 @@
-import React from "react";
-import style from "../styles/Home.module.css";
-import Link from "next/link";
-import Head from "next/head";
+import React from 'react';
+import style from '../styles/Home.module.css';
+import Link from 'next/link';
+import Head from 'next/head';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faAt,
   faBookOpen,
   faRightFromBracket,
   faSquarePlus,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 const Index = () => {
   return (
     <div>
@@ -33,27 +33,24 @@ const Index = () => {
         <nav className={style.nav}>
           <h1>My Blog</h1>
           <div className={style.div}>
-            <Link href="/login">
-              <a>
-                <button className={style.button}>
-                  {" "}
-                  <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
-                  Ro'yhatdan o'tish
-                </button>
-              </a>
-            </Link>
-            <Link href="/register">
-              <a>
-                <button className={style.button}>
-                  {" "}
-                  <FontAwesomeIcon
-                    className={style.icon}
-                    icon={faRightFromBracket}
-                  />{" "}
-                  Tizimga kirish
-                </button>
-              </a>
-            </Link>
+            <a href="/register">
+              <button className={style.button}>
+                {' '}
+                <FontAwesomeIcon className={style.icon} icon={faAt} />{' '}
+                Ro'yhatdan o'tish
+              </button>
+            </a>
+
+            <a href="/login">
+              <button className={style.button}>
+                {' '}
+                <FontAwesomeIcon
+                  className={style.icon}
+                  icon={faRightFromBracket}
+                />{' '}
+                Tizimga kirish
+              </button>
+            </a>
           </div>
         </nav>
       </header>
@@ -64,25 +61,19 @@ const Index = () => {
             <hr />
             <h2 className={style.h2}>My blog platformasiga xush kelibsiz!</h2>
             <div className={style.buttons}>
-              <Link href="/blog/1">
-                <a>
-                  <button className={style.button}>
-                    <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
-                    Maqolani o'qish
-                  </button>
-                </a>
-              </Link>
-              <Link href="/post">
-                <a>
-                  <button className={style.button}>
-                    <FontAwesomeIcon
-                      className={style.icon}
-                      icon={faSquarePlus}
-                    />{" "}
-                    Maqola yaratish
-                  </button>
-                </a>
-              </Link>
+              <a href="/blog/1">
+                <button className={style.button}>
+                  <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{' '}
+                  Maqolani o'qish
+                </button>
+              </a>
+
+              <a href="/post">
+                <button className={style.button}>
+                  <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{' '}
+                  Maqola yaratish
+                </button>
+              </a>
             </div>
           </div>
         </main>
