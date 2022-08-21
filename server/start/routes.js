@@ -8,7 +8,11 @@ const profile = require("../routes/profile");
 const cors = require("cors");
 
 module.exports = (app) => {
-  app.use(cors());
+  app.use(
+    cors({
+      exposedHeaders: "x-token",
+    })
+  );
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/api/post", postUser);

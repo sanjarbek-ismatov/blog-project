@@ -8,6 +8,7 @@ import {
   faAt,
   faBookOpen,
   faRightFromBracket,
+  faRightToBracket,
   faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
 const Index = () => {
@@ -33,24 +34,38 @@ const Index = () => {
         <nav className={style.nav}>
           <h1>My Blog</h1>
           <div className={style.div}>
-            <a href="/register">
-              <button className={style.button}>
-                {" "}
-                <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
-                Ro'yhatdan o'tish
-              </button>
-            </a>
-
-            <a href="/login">
-              <button className={style.button}>
-                {" "}
+            {typeof window !== "undefined" && !localStorage.token ? (
+              <>
+                <a href="/register">
+                  <button className={style.button}>
+                    {" "}
+                    <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
+                    Ro'yhatdan o'tish
+                  </button>
+                </a>
+                <a href="/login">
+                  <button className={style.button}>
+                    {" "}
+                    <FontAwesomeIcon
+                      className={style.icon}
+                      icon={faRightToBracket}
+                    />{" "}
+                    Tizimga kirish
+                  </button>
+                </a>
+              </>
+            ) : (
+              <button
+                className={style.button}
+                onClick={() => localStorage.removeItem("token")}
+              >
                 <FontAwesomeIcon
                   className={style.icon}
                   icon={faRightFromBracket}
                 />{" "}
-                Tizimga kirish
+                Chiqish
               </button>
-            </a>
+            )}
           </div>
         </nav>
       </header>
