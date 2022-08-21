@@ -34,7 +34,12 @@ const Create = () => {
       <Head>
         <title>Ro'yhatdan o'tish</title>
       </Head>
-      <form className={style.form} onSubmit={handleSubmit}>
+      <form
+        smooth="true"
+        delay="1000"
+        className={style.form}
+        onSubmit={handleSubmit}
+      >
         <h1 className={style.h1}>Ro'yhatdan o'tish sahifasi</h1>
         <input
           placeholder="Ismingiz"

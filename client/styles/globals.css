@@ -56,3 +56,19 @@ li {
   color: rgba(255, 255, 255, 0.719);
   font-family: sans-serif;
 }
+[smooth="true"] {
+  animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+[time="1000"] {
+  animation: onload 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+@keyframes onload {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

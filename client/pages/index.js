@@ -1,15 +1,15 @@
-import React from 'react';
-import style from '../styles/Home.module.css';
-import Link from 'next/link';
-import Head from 'next/head';
+import React from "react";
+import style from "../styles/Home.module.css";
+import Link from "next/link";
+import Head from "next/head";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAt,
   faBookOpen,
   faRightFromBracket,
   faSquarePlus,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
 const Index = () => {
   return (
     <div>
@@ -35,19 +35,19 @@ const Index = () => {
           <div className={style.div}>
             <a href="/register">
               <button className={style.button}>
-                {' '}
-                <FontAwesomeIcon className={style.icon} icon={faAt} />{' '}
+                {" "}
+                <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
                 Ro'yhatdan o'tish
               </button>
             </a>
 
             <a href="/login">
               <button className={style.button}>
-                {' '}
+                {" "}
                 <FontAwesomeIcon
                   className={style.icon}
                   icon={faRightFromBracket}
-                />{' '}
+                />{" "}
                 Tizimga kirish
               </button>
             </a>
@@ -57,20 +57,24 @@ const Index = () => {
       <main>
         <main className={style.main}>
           <div className={style.mainDiv}>
-            <h1 className={style.h1}>Assalomu alaykum</h1>
-            <hr />
-            <h2 className={style.h2}>My blog platformasiga xush kelibsiz!</h2>
+            <h1 time="1000" smooth="true" className={style.h1}>
+              Assalomu alaykum
+            </h1>
+            <hr smooth="true" />
+            <h2 smooth="true" className={style.h2}>
+              My blog platformasiga xush kelibsiz!
+            </h2>
             <div className={style.buttons}>
               <a href="/blog/1">
                 <button className={style.button}>
-                  <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{' '}
+                  <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
                   Maqolani o'qish
                 </button>
               </a>
 
               <a href="/post">
                 <button className={style.button}>
-                  <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{' '}
+                  <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
                   Maqola yaratish
                 </button>
               </a>

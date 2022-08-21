@@ -55,24 +55,13 @@
     padding: 0 50px;
   }
 }
-@keyframes onload {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
+
 .h1 {
   margin: -100px auto 30px;
   font-size: 50px;
-  animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .h2 {
   margin-top: 30px;
-  animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .buttons {
   margin-top: 30px;
