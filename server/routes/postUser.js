@@ -26,12 +26,15 @@ router.post("/", async (req, res) => {
   if (result.error) {
     return res.status(400).send(result.error.details[0].message);
   }
-  const findEmail = await User.findOne({ email: req.body.email });
+  const findEmail = await User.findOne({
+    email: req.body.email,
+    username: req.body.username,
+  });
   if (findEmail) {
-    return res.status(401).send("Email allaqachon olingan!");
+    return res.status(403).send("Email yoki username allaqachon olingan!");
   }
-  const newUser = await createUser(req.body);
-  res.status(201).send(_.pick(newUser, ["username", "lastname", "email"]));
+  await createUser(req.body);
+  res.status(201).send("Ro'yhatdan o'tdingiz");
 });
 
 module.exports = router;

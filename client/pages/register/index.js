@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../../styles/Register.module.css";
+import Axios from "axios";
+import useRouter from "next/router";
 const create = () => {
+  const router = useRouter;
+  const [error, setError] = useState("");
+  const [auth, setAuth] = useState("");
+  const postUser = async (body) => {
+    await Axios.post("https://blog-api-uz.herokuapp.com/api/post", body)
+      .then((data) => {
+        setAuth(data.data);
+        setError("");
+        router.push("/");
+      })
+      .catch((err) => {
+        setError(err.response.data);
+        setAuth("");
+      });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target["0"].value);
-    console.log(e);
+    postUser({
+      firstname: e.target["0"].value,
+      lastname: e.target["1"].value,
+      username: e.target["2"].value,
+      email: e.target["3"].value,
+      password: e.target["4"].value,
+    });
   };
   return (
     <div className={style.main}>
+      <Head>
+        <title>Ro'yhatdan o'tish</title>
+      </Head>
       <form className={style.form} onSubmit={handleSubmit}>
         <h1 className={style.h1}>Ro'yhatdan o'tish sahifasi</h1>
         <input
@@ -54,6 +79,7 @@ const create = () => {
           Ro'yhatdan o'tish
         </button>
       </form>
+      {(error && <p>{error}</p>) || (auth && <p>{auth}</p>)}
     </div>
   );
 };
