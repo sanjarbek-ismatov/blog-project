@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import style from "../../styles/Register.module.css";
 import Axios from "axios";
 import useRouter from "next/router";
-const create = () => {
+import Head from "next/head";
+const Create = () => {
   const router = useRouter;
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("");
@@ -84,4 +85,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;
