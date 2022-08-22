@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "../styles/Home.module.css";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +12,14 @@ import {
   faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
 const Index = () => {
+  const [hydration, sethydration] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    sethydration(true);
+  }, []);
+  if (!hydration) {
+    return null;
+  }
   return (
     <div>
       <Head>
@@ -57,7 +65,10 @@ const Index = () => {
             ) : (
               <button
                 className={style.button}
-                onClick={() => localStorage.removeItem("token")}
+                onClick={() => {
+                  window && localStorage.removeItem("token");
+                  router.reload(window.location.pathname);
+                }}
               >
                 <FontAwesomeIcon
                   className={style.icon}

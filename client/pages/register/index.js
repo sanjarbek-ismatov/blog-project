@@ -3,16 +3,17 @@ import style from "../../styles/Register.module.css";
 import Axios from "axios";
 import useRouter from "next/router";
 import Head from "next/head";
+import Spinner from "../../components/Spinner";
 const Create = () => {
   const router = useRouter;
   const [error, setError] = useState("");
-  const [auth, setAuth] = useState("");
+  const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
     await Axios.post("https://blog-api-uz.herokuapp.com/api/post", body)
       .then((data) => {
         setAuth(data.data);
         setError("");
-        router.push("/");
+        router.replace("/login");
       })
       .catch((err) => {
         setError(err.response.data);
@@ -20,6 +21,8 @@ const Create = () => {
       });
   };
   const handleSubmit = (e) => {
+    setAuth("");
+    setError("");
     e.preventDefault();
     postUser({
       firstname: e.target["0"].value,
@@ -34,6 +37,7 @@ const Create = () => {
       <Head>
         <title>Ro'yhatdan o'tish</title>
       </Head>
+
       <form
         smooth="true"
         delay="1000"
@@ -85,6 +89,7 @@ const Create = () => {
           Ro'yhatdan o'tish
         </button>
       </form>
+      {!auth && !error && <Spinner />}
       {(error && <p>{error}</p>) || (auth && <p>{auth}</p>)}
     </div>
   );

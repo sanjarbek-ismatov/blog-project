@@ -43,8 +43,6 @@ const Post = ({ data, metadata }) => {
           </div>
           <div className={style.lowerContent}>
             <p>{new Date(e.date).toLocaleTimeString()}</p>
-            {/* <FontAwesomeIcon className={style.icon} icon={faHeart} />
-        <span className={style.icon}>{e.likeCount}</span> */}
           </div>
         </div>
       ))}
@@ -53,9 +51,8 @@ const Post = ({ data, metadata }) => {
 };
 
 export default Post;
-export async function getServerSideProps({ params }) {
-  const id = params.id.replace(/ /g, "-");
-
+export async function getStaticProps({ params }) {
+  const { id } = params;
   const res = await fetch(
     `https://blog-api-uz.herokuapp.com/api/get/post/`
   ).then((res) => res.json());
@@ -72,5 +69,22 @@ export async function getServerSideProps({ params }) {
         image: data[0].image,
       },
     },
+  };
+}
+export async function getStaticPaths() {
+  const response = await fetch(
+    "https://blog-api-uz.herokuapp.com/api/get/post/"
+  );
+  const data = await response.json();
+  const paths = data.map((e, i) => {
+    return {
+      params: {
+        id: `${e.title.replace(/ /g, "-").toLowerCase()}`,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
   };
 }
