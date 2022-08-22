@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import NetworkMessage from "../../../components/NetworkMessage";
 import Axios from "axios";
 import Head from "next/head";
-const Post = ({ data }) => {
+const Post = ({ data, metadata }) => {
   const [hydrate, sethydrate] = useState(false);
   useEffect(() => {
     sethydrate(true);
@@ -14,12 +14,12 @@ const Post = ({ data }) => {
   if (!hydrate) return null;
   if (!data) return <NetworkMessage />;
   return (
-    <>
+    <div>
       <Head>
-        <title>{data[0].title}</title>
-        <meta property="og:title" content={data[0].title} />
+        <title>{metadata.title}</title>
+        <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content="My blog -  maqolalar sayti" />
-        <meta property="og:image" content={data[0].image} />
+        <meta property="og:image" content={metadata.image} />
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
       {data.map((e, i) => (
@@ -46,7 +46,7 @@ const Post = ({ data }) => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
@@ -64,6 +64,10 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       data: data,
+      metadata: {
+        title: data[0].title,
+        image: data[0].image,
+      },
     },
   };
 }
