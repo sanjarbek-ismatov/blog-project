@@ -1,14 +1,14 @@
-import style from '../styles/Navbar.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import useRouter from 'next/router';
-import Link from 'next/link';
-import useTheme from './hooks/useTheme';
-const Navbar = ({ handleChange, value }) => {
+import style from "../styles/Navbar.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import useRouter from "next/router";
+
+import useTheme from "./hooks/useTheme";
+const Navbar = ({ handleChange, value, profileImage }) => {
   const [theme, setTheme] = useTheme();
   const router = useRouter;
   return (
-    <nav className={theme === 'light' ? style.navLight : style.navDark}>
+    <nav className={theme === "light" ? style.navLight : style.navDark}>
       <div className={style.inputContainer}>
         <FontAwesomeIcon icon={faSearch} className={style.searchIcon} />
         <input
@@ -26,14 +26,10 @@ const Navbar = ({ handleChange, value }) => {
         <h1 className={style.h1}>Mening Maqolam</h1>
       </a>
       <div className={style.content}>
-        <img
-          className={style.profile}
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          title="profile"
-        />
+        <img className={style.profile} src={profileImage} title="profile" />
         {/* <FontAwesomeIcon className={style.icon} icon={faGear} /> */}
         <svg
-          onClick={() => router.push('/setting')}
+          onClick={() => router.push("/setting")}
           xmlns="http://www.w3.org/2000/svg"
           className={style.icon}
           width="44"

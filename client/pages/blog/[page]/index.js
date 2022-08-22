@@ -6,6 +6,8 @@ import Image from "next/image";
 import Panigation from "../../../components/Panigation";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { getProfileMeThunk } from "../../../state/thunks/getProfileMeThunk";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
@@ -23,6 +25,12 @@ export async function getServerSideProps({ params }) {
 }
 
 const Index = ({ data }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProfileMeThunk(localStorage.getItem("token")));
+  }, []);
+  const state = useSelector((data) => data.getMe);
+
   function $(date) {
     return new Date(date);
   }
@@ -37,7 +45,11 @@ const Index = ({ data }) => {
 
   return (
     <main>
-      <Navbar handleChange={(e) => setText(e.target.value)} value={text} />
+      <Navbar
+        // profileImage={profile.image}
+        handleChange={(e) => setText(e.target.value)}
+        value={text}
+      />
       <Head>
         <title>MyBlog {page} sahifa</title>
       </Head>
