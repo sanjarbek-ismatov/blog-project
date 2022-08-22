@@ -3,6 +3,7 @@ import style from "../../styles/Post.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
+import NetworkMessage from "../../components/NetworkMessage";
 
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
