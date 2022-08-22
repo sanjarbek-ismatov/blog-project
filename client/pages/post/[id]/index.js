@@ -15,13 +15,30 @@ const Post = ({ data, metadata }) => {
   if (!data) return <NetworkMessage />;
   return (
     <div>
-      {/* <Head>
-        <title>{metadata.title}</title>
+      <NextSeo
+        title={metadata.title}
+        description="My blog -  maqolalar sayti"
+        openGraph={{
+          type: "website",
+          title: metadata.title,
+          description: "My blog -  maqolalar sayti",
+          images: [
+            {
+              url: metadata.image,
+              width: "800",
+              height: "600",
+              alt: metadata.title,
+            },
+          ],
+        }}
+      />
+      <Head>
+        {/* <title>{metadata.title}</title>
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content="My blog -  maqolalar sayti" />
-        <meta property="og:image" content={metadata.image} />
+        <meta property="og:image" content={metadata.image} /> */}
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
-      </Head> */}
+      </Head>
 
       {data.map((e, i) => (
         <div key={i} className={style.post}>
@@ -47,23 +64,6 @@ const Post = ({ data, metadata }) => {
           </div>
         </div>
       ))}
-      <NextSeo
-        title={metadata.title}
-        description="My blog -  maqolalar sayti"
-        openGraph={{
-          type: "website",
-          title: metadata.title,
-          description: "My blog -  maqolalar sayti",
-          images: [
-            {
-              url: metadata.image,
-              width: "800",
-              height: "600",
-              alt: metadata.title,
-            },
-          ],
-        }}
-      />
     </div>
   );
 };
