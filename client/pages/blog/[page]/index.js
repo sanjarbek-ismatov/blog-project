@@ -27,7 +27,9 @@ export async function getServerSideProps({ params }) {
 const Index = ({ data }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProfileMeThunk(localStorage.getItem("token")));
+    if (typeof window !== "undefined" && localStorage.token) {
+      dispatch(getProfileMeThunk(localStorage.getItem("token")));
+    }
   }, []);
   const state = useSelector((data) => data.getMe);
 
