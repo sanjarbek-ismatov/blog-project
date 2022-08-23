@@ -37,6 +37,7 @@
 .profile {
   width: 40px;
   margin: 0 5px;
+  border-radius: 50%;
 }
 .icon {
   font-size: 20px;

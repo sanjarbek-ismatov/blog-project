@@ -4,9 +4,10 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import useRouter from "next/router";
 
 import useTheme from "./hooks/useTheme";
-const Navbar = ({ handleChange, value, profileImage }) => {
+const Navbar = ({ handleChange, value, profile }) => {
   const [theme, setTheme] = useTheme();
   const router = useRouter;
+
   return (
     <nav className={theme === "light" ? style.navLight : style.navDark}>
       <div className={style.inputContainer}>
@@ -26,8 +27,16 @@ const Navbar = ({ handleChange, value, profileImage }) => {
         <h1 className={style.h1}>Mening Maqolam</h1>
       </a>
       <div className={style.content}>
-        <img className={style.profile} src={profileImage} title="profile" />
-        {/* <FontAwesomeIcon className={style.icon} icon={faGear} /> */}
+        {(profile && profile.profile.length !== 0 && (
+          <a href={`/profile/me`}>
+            <img
+              className={style.profile}
+              src={profile.profile.data.user.profile}
+              title="profile"
+            />
+          </a>
+        )) || <div className={style.profile}></div>}
+
         <svg
           onClick={() => router.push("/setting")}
           xmlns="http://www.w3.org/2000/svg"

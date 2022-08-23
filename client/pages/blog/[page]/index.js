@@ -46,7 +46,7 @@ const Index = ({ data }) => {
   return (
     <main>
       <Navbar
-        // profileImage={profile.image}
+        profile={state}
         handleChange={(e) => setText(e.target.value)}
         value={text}
       />

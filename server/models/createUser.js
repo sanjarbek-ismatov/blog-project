@@ -7,7 +7,7 @@ async function createUser(body) {
   const user = new User(
     _.pick(body, [
       "username",
-
+      "profile",
       "firstname",
       "lastname",
       "email",

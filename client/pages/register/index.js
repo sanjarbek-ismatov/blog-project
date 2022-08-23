@@ -30,6 +30,7 @@ const Create = () => {
       username: e.target["2"].value,
       email: e.target["3"].value,
       password: e.target["4"].value,
+      profile: e.target["5"].value,
     });
   };
   return (
@@ -84,6 +85,12 @@ const Create = () => {
           name="password"
           min={8}
           required
+        />
+        <input
+          placeholder="Profile uchun rasm"
+          className={style.input}
+          type="url"
+          name="image"
         />
         <button className={style.button} type="submit">
           Ro'yhatdan o'tish

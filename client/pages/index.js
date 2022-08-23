@@ -101,7 +101,7 @@ const Index = () => {
               <a href="/post">
                 <button className={style.button}>
                   <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
-                  Maqola yaratish
+                  Maqola yozish
                 </button>
               </a>
             </div>
