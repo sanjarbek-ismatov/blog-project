@@ -7,6 +7,7 @@ module.exports = async (id, username) => {
     return { user: user, posts: posts };
   } else if (username) {
     const user = await User.findOne({ username: username }).select("-posts");
+    if (!user) return;
     const posts = await Post.find({ author: user._id });
     return { user: user, posts: posts };
   }

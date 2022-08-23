@@ -12,19 +12,8 @@ const postSchema = new mongoose.Schema({
   content: String,
   image: String,
   likeCount: { type: Number, default: 0 },
-  comments: {
-    user: mongoose.SchemaTypes.ObjectId,
-    body: String,
-    date: {
-      type: Date,
-      default: () => {
-        return this.user && Date.now();
-      },
-    },
-  },
 });
-// ok
-// ok
+
 const Post = mongoose.model("post", postSchema);
 async function createPost({ title, content, image }, author) {
   const post = await new Post({

@@ -5,6 +5,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  profile: {
+    type: String,
+    default: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+  },
   firstname: {
     type: String,
     required: true,
