@@ -13,10 +13,17 @@ const Post = ({ data }) => {
       <NextSeo
         title={`${data[0].title}`}
         description={"My blog -  maqolalar sayti"}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: `${data[0].title}, My blog -  maqolalar sayti, MyBlog, Maqola`,
+          },
+        ]}
         openGraph={{
           type: "url",
           description: "My blog -  maqolalar sayti",
           title: `${data[0].title}`,
+
           images: [
             {
               url: data[0].image,
