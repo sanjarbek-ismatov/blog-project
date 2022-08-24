@@ -3,7 +3,7 @@ import style from "../../styles/Post.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import NetworkMessage from "../../components/NetworkMessage";
-import Axios from "axios";
+import { NextSeo } from "next-seo";
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
   const [hydrate, sethydrate] = useState(false);
@@ -15,12 +15,26 @@ const Post = ({ data, metadata }) => {
   return (
     <>
       <Head>
-        <title>{metadata.title}</title>
+        {/* <title>{metadata.title}</title>
         <meta property="og:title" content={metadata.title} />
         <meta property="og:description" content="My blog -  maqolalar sayti" />
-        <meta property="og:image" content={metadata.image} />
+        <meta property="og:image" content={metadata.image} /> */}
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
+      <NextSeo
+        title={`${metadata.title}`}
+        description={"My blog -  maqolalar sayti"}
+        openGraph={{
+          type: "url",
+          description: "My blog -  maqolalar sayti",
+          title: `${metadata.title}`,
+          images: [
+            {
+              url: `${metadata.image}`,
+            },
+          ],
+        }}
+      />
       {data.map((e, i) => (
         <div key={i} className={style.post}>
           <h1 key={i} className={style.h1}>
