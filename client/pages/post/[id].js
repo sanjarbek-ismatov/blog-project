@@ -2,12 +2,7 @@ import React from "react";
 import style from "../../styles/Post.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
 import NetworkMessage from "../../components/NetworkMessage";
-
-
-
-import NetworkMessage from "../../../components/NetworkMessage";
 import Axios from "axios";
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
