@@ -1,63 +1,56 @@
 import React from "react";
 import style from "../../styles/Post.module.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-// import NetworkMessage from "../../components/NetworkMessage";
+
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-const Post = ({ data, metadata }) => {
-  const [hydrate, sethydrate] = useState(false);
-  useEffect(() => {
-    sethydrate(true);
-  }, []);
-  if (!hydrate) return null;
-//   if (!data) return <NetworkMessage />;
+const Post = ({ data }) => {
   return (
-    <>
+    <div>
       <Head>
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
       <NextSeo
-        title={`${metadata.title}`}
+        title={`${data[0].title}`}
         description={"My blog -  maqolalar sayti"}
         openGraph={{
           type: "url",
           description: "My blog -  maqolalar sayti",
-          title: `${metadata.title}`,
+          title: `${data[0].title}`,
           images: [
             {
-              url: `${metadata.image}`,
+              url: `${data[0].image}`,
             },
           ],
         }}
       />
-      {data.map((e, i) => (
-        <div key={i} className={style.post}>
-          <h1 key={i} className={style.h1}>
-            {e.title}
-          </h1>
-          <div className={style.postImage}>
-            <Image
-              className={style.image}
-              loader={() => e.image}
-              src={e.image}
-              alt="post-image"
-              width={1000}
-              height={550}
-              layout="responsive"
-            />
+      {data.map((e, i) => {
+        return (
+          <div key={i} className={style.post}>
+            <h1 key={i} className={style.h1}>
+              {e.title}
+            </h1>
+            <div className={style.postImage}>
+              <Image
+                className={style.image}
+                loader={() => e.image}
+                src={e.image}
+                alt="post-image"
+                width={1000}
+                height={550}
+                layout="responsive"
+              />
+            </div>
+            <div className={style.content}>
+              <p className={style.p}>{e.content}</p>
+            </div>
+            <div className={style.lowerContent}>
+              <p>{new Date(e.date).toLocaleTimeString()}</p>
+            </div>
           </div>
-          <div className={style.content}>
-            <p className={style.p}>{e.content}</p>
-          </div>
-          <div className={style.lowerContent}>
-            <p>{new Date(e.date).toLocaleTimeString()}</p>
-            {/* <FontAwesomeIcon className={style.icon} icon={faHeart} />
-        <span className={style.icon}>{e.likeCount}</span> */}
-          </div>
-        </div>
-      ))}
-    </>
+        );
+      })}
+    </div>
   );
 };
 
@@ -76,10 +69,6 @@ export async function getServerSideProps({ params }) {
   return {
     props: {
       data: data,
-      metadata: {
-        title: data[0].title,
-        image: data[0].image,
-      },
     },
   };
 }
