@@ -5,7 +5,7 @@ import useRouter from "next/router";
 import Head from "next/head";
 import { createPostThunk } from "../../state/thunks/createPostThunk";
 import Spinner from "../../components/Spinner";
-const create = () => {
+const Create = () => {
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("Formani to'ldiring");
   const dispatch = useDispatch();
@@ -73,4 +73,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;
