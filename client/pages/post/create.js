@@ -57,7 +57,7 @@ const Create = () => {
           required
         />
         <input
-          placeholder="Maqolani uchun maydon"
+          placeholder="Maqola uchun maydon"
           className={style.input}
           type="text"
           required
