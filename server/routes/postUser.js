@@ -35,9 +35,11 @@ router.post("/", async (req, res) => {
   }
   const findEmail = await User.findOne({
     email: req.body.email,
+  });
+  const findUser = await User.findOne({
     username: req.body.username,
   });
-  if (findEmail) {
+  if (findEmail || findUser) {
     return res.status(403).send("Email yoki username allaqachon olingan!");
   }
   await createUser(req.body);
