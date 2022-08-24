@@ -48,7 +48,7 @@ const User = ({ user }) => {
           <ul className={style.ul}>
             {user.posts.map((e, i) => {
               return (
-                <li>
+                <li key={i}>
                   <Link
                     href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
                   >
