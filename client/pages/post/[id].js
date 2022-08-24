@@ -2,7 +2,7 @@ import React from "react";
 import style from "../../styles/Post.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import NetworkMessage from "../../components/NetworkMessage";
+// import NetworkMessage from "../../components/NetworkMessage";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 const Post = ({ data, metadata }) => {
@@ -11,7 +11,7 @@ const Post = ({ data, metadata }) => {
     sethydrate(true);
   }, []);
   if (!hydrate) return null;
-  if (!data) return <NetworkMessage />;
+//   if (!data) return <NetworkMessage />;
   return (
     <>
       <Head>
