@@ -15,10 +15,6 @@ const Post = ({ data, metadata }) => {
   return (
     <>
       <Head>
-        {/* <title>{metadata.title}</title>
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content="My blog -  maqolalar sayti" />
-        <meta property="og:image" content={metadata.image} /> */}
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
       <NextSeo
