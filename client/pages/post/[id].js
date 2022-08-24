@@ -33,15 +33,11 @@ const Post = ({ data, metadata }) => {
         }}
       />
       <Head>
-        {/* <title>{metadata.title}</title>
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content="My blog -  maqolalar sayti" />
-        <meta property="og:image" content={metadata.image} /> */}
         <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
       </Head>
 
       {data.map((e, i) => (
-        <div key={i} className={style.post}>
+        <div smooth="true" key={i} className={style.post}>
           <h1 key={i} className={style.h1}>
             {e.title}
           </h1>

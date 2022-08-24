@@ -70,7 +70,7 @@ const Index = ({ data }) => {
                   href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
                 >
                   <a>
-                    <div className={style.post}>
+                    <div smooth="true" className={style.post}>
                       <Image
                         loader={() => e.image}
                         src={e.image}

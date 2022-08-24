@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+
+  text-align: center;
+  padding-top: 50px;
+}
+.image {
+  border-radius: 50%;
+}
+.line {
+  position: relative;
+  top: 100px;
+}
+.main {
+  padding-top: 30px;
+  text-align: center;
+}
+.email {
+  text-decoration: underline;
+  opacity: 0.7;
+  margin: 15px auto;
+}
+.email:hover {
+  opacity: 1;
+}
+.h1 {
+  text-decoration: underline;
+  font-style: italic;
+  opacity: 0.7;
+  font-size: 30px;
+}

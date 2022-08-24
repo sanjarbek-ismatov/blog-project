@@ -98,7 +98,7 @@ const Index = () => {
                 </button>
               </a>
 
-              <a href="/post">
+              <a href="/post/create">
                 <button className={style.button}>
                   <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
                   Maqola yozish
