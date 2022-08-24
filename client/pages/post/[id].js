@@ -19,7 +19,7 @@ const Post = ({ data }) => {
           title: `${data[0].title}`,
           images: [
             {
-              url: `${data[0].image}`,
+              url: data[0].image,
             },
           ],
         }}
