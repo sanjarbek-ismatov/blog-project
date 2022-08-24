@@ -20,7 +20,8 @@ const User = ({ user }) => {
           },
         ]}
         openGraph={{
-          type: "url",
+          type: "website",
+          url: "https://my-blog-uz.vercel.app/",
           title: `${user.user.firstname} ${user.user.lastname}`,
           description: `${user.user.firstname} ${user.user.lastname} - MyBlog`,
           images: [

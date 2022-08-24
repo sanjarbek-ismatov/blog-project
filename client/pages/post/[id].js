@@ -20,7 +20,8 @@ const Post = ({ data }) => {
           },
         ]}
         openGraph={{
-          type: "url",
+          type: "website",
+          url: "https://my-blog-uz.vercel.app/",
           description: "My blog -  maqolalar sayti",
           title: `${data[0].title}`,
 
