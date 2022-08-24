@@ -13,6 +13,12 @@ const User = ({ user }) => {
       <NextSeo
         title={`${user.user.firstname} ${user.user.lastname}`}
         description={`${user.user.firstname} ${user.user.lastname} - MyBlog`}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: `${user.user.firstname} ${user.user.lastname}, My blog -  maqolalar sayti, MyBlog, Maqola`,
+          },
+        ]}
         openGraph={{
           type: "url",
           title: `${user.user.firstname} ${user.user.lastname}`,
