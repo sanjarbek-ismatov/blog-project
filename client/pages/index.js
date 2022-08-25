@@ -29,7 +29,6 @@ const Index = () => {
                   <button className={style.button}>
                     {" "}
                     <FontAwesomeIcon className={style.icon} icon={faAt} />{" "}
-                    Ro'yhatdan o'tish
                   </button>
                 </a>
                 <a href="/login">
@@ -39,7 +38,6 @@ const Index = () => {
                       className={style.icon}
                       icon={faRightToBracket}
                     />{" "}
-                    Tizimga kirish
                   </button>
                 </a>
               </>
@@ -75,14 +73,12 @@ const Index = () => {
               <a href="/blog/1">
                 <button className={style.button}>
                   <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
-                  Maqolani o'qish
                 </button>
               </a>
 
               <a href="/post/create">
                 <button className={style.button}>
                   <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
-                  Maqola yozish
                 </button>
               </a>
             </div>
