@@ -56,7 +56,7 @@ const Create = () => {
           name="title"
           required
         />
-        <input
+        <textarea
           placeholder="Maqola uchun maydon"
           className={style.input}
           type="text"

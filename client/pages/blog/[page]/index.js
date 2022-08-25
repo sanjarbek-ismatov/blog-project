@@ -47,7 +47,7 @@ const Index = ({ data }) => {
         value={text}
       />
 
-      <main>
+      <main className={style.main}>
         {data.length === 0 ? (
           <h1 className={style.post}>
             Kechirasiz Siz mavjud emas sahifadasiz!

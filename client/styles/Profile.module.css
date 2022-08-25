@@ -20,12 +20,24 @@
   opacity: 0.7;
   margin: 15px auto;
 }
+.icon {
+  width: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  opacity: 0.5;
+}
+.icon:hover {
+  opacity: 1;
+}
+
 .email:hover {
   opacity: 1;
 }
 .h1 {
   text-decoration: underline;
-  font-style: italic;
+
   opacity: 0.7;
   font-size: 30px;
 }

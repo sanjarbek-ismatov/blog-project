@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getProfileMeThunk } from "../../state/thunks/getProfileMeThunk";
@@ -8,15 +7,25 @@ import style from "../../styles/Profile.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
+import { deletePostThunk } from "../../state/thunks/deletePostThunk";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Me = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const state = useSelector((data) => data.getMe);
+  const deleteStatus = useSelector((data) => data.deletePost);
   useEffect(() => {
     if (typeof window !== "undefined" && localStorage.getItem("token")) {
       dispatch(getProfileMeThunk(localStorage.getItem("token")));
     }
   }, []);
+  function handleDeletePost(e) {
+    dispatch(deletePostThunk(e));
+  }
+  if (deleteStatus.status) {
+    router.reload();
+  }
   if (state && state.profile.length !== 0) {
     const user = state.profile.data;
     return (
@@ -68,6 +77,11 @@ const Me = () => {
                     >
                       <a className={style.h1}>{e.title}</a>
                     </Link>
+                    <FontAwesomeIcon
+                      onClick={() => handleDeletePost(e._id)}
+                      className={style.icon}
+                      icon={faTrashCan}
+                    />
                   </li>
                 );
               })}
