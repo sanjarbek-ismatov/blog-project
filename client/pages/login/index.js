@@ -50,6 +50,7 @@ const Create = () => {
           className={style.input}
           type="email"
           name="email"
+          autoComplete="off"
           required
         />
 
@@ -59,6 +60,7 @@ const Create = () => {
           type="password"
           name="password"
           min={8}
+          autoComplete="off"
           required
         />
         <button className={style.button} type="submit">

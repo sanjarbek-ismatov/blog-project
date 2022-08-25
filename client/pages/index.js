@@ -53,7 +53,6 @@ const Index = () => {
                   className={style.icon}
                   icon={faRightFromBracket}
                 />{" "}
-                Chiqish
               </button>
             )}
           </div>

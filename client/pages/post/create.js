@@ -42,10 +42,11 @@ const Create = () => {
         <h1 className={style.h1}>Maqola yozish sahifasi</h1>
 
         <input
-          placeholder="Maqola uchun rasm joylashtiring"
+          placeholder="Full HD rasm"
           className={style.input}
           type="url"
           name="image"
+          autoComplete="off"
           required
         />
 
@@ -54,12 +55,14 @@ const Create = () => {
           className={style.input}
           type="test"
           name="title"
+          autoComplete="off"
           required
         />
         <textarea
           placeholder="Maqola uchun maydon"
-          className={style.input}
+          className={style.area}
           type="text"
+          autoComplete="off"
           required
         />
 

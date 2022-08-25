@@ -45,7 +45,7 @@ const Create = () => {
         className={style.form}
         onSubmit={handleSubmit}
       >
-        <h1 className={style.h1}>Ro'yhatdan o'tish sahifasi</h1>
+        <h1 className={style.h1}>Ro'yhatdan o'tish</h1>
         <input
           placeholder="Ismingiz"
           className={style.input}
@@ -87,7 +87,7 @@ const Create = () => {
           required
         />
         <input
-          placeholder="Profile uchun rasm"
+          placeholder="URL formatdagi rasm"
           className={style.input}
           type="url"
           name="image"
