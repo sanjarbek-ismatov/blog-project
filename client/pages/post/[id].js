@@ -3,13 +3,10 @@ import style from "../../styles/Post.module.css";
 import Image from "next/image";
 
 import { NextSeo } from "next-seo";
-import Head from "next/head";
+
 const Post = ({ data }) => {
   return (
-    <div>
-      <Head>
-        <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
-      </Head>
+    <>
       <NextSeo
         title={`${data[0].title}`}
         description={"My blog -  maqolalar sayti"}
@@ -58,7 +55,7 @@ const Post = ({ data }) => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 

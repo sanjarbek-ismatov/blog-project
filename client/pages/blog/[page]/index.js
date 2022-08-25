@@ -1,4 +1,3 @@
-import Head from "next/head";
 import style from "../../../styles/Blog.module.css";
 import { useState, useEffect } from "react";
 import Navbar from "../../../components/Navbar";
@@ -37,13 +36,8 @@ const Index = ({ data }) => {
     return new Date(date);
   }
   const { page } = useRouter().query;
-  const [hydrate, sethydrate] = useState(false);
-  const [text, setText] = useState("");
 
-  useEffect(() => {
-    sethydrate(true);
-  }, []);
-  if (!hydrate) return null;
+  const [text, setText] = useState("");
 
   return (
     <main>
@@ -52,9 +46,7 @@ const Index = ({ data }) => {
         handleChange={(e) => setText(e.target.value)}
         value={text}
       />
-      <Head>
-        <title>MyBlog {page} sahifa</title>
-      </Head>
+
       <main>
         {data.length === 0 ? (
           <h1 className={style.post}>
