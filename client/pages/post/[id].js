@@ -67,7 +67,7 @@ export async function getServerSideProps({ params }) {
     `https://blog-api-uz.herokuapp.com/api/get/post/`
   ).then((res) => res.json());
 
-  const data = res.filter(
+  const data = await res.filter(
     (e) => e.title.replace(/ /g, "-").toLowerCase() === id
   );
 

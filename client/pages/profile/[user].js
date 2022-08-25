@@ -1,5 +1,3 @@
-import React from "react";
-
 import style from "../../styles/Profile.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
