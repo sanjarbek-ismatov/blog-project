@@ -1,15 +1,12 @@
 import React from "react";
-import Head from "next/head";
+
 import style from "../../styles/Profile.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 const User = ({ user }) => {
   return (
-    <div>
-      <Head>
-        <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
-      </Head>
+    <>
       <NextSeo
         title={`${user.user.firstname} ${user.user.lastname}`}
         description={`${user.user.firstname} ${user.user.lastname} - MyBlog`}
@@ -67,7 +64,7 @@ const User = ({ user }) => {
           </ul>
         </div>
       </main>
-    </div>
+    </>
   );
 };
 
