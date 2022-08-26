@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   const result = await Post.find();
   res.status(200).send(result);
 });
-router.get("/:id", async (req, res) => {
+router.get("/page/:id", async (req, res) => {
   const data = await Post.find();
   const result = data.filter(
     (e) => e.title.toLowerCase().replace(/ /g, "-") === req.params.id
