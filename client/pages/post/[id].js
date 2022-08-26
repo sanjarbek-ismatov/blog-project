@@ -61,19 +61,13 @@ const Post = ({ data }) => {
 
 export default Post;
 export async function getServerSideProps({ params }) {
-  const id = params.id.replace(/ /g, "-");
-
   const res = await fetch(
-    `https://blog-api-uz.herokuapp.com/api/get/post/`
+    `https://blog-api-uz.herokuapp.com/api/get/post/${params.id}`
   ).then((res) => res.json());
-
-  const data = await res.filter(
-    (e) => e.title.replace(/ /g, "-").toLowerCase() === id
-  );
 
   return {
     props: {
-      data: data,
+      data: res,
     },
   };
 }

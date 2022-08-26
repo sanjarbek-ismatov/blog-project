@@ -11,6 +11,13 @@ router.get("/", async (req, res) => {
   const result = await Post.find();
   res.status(200).send(result);
 });
+router.get("/:id", async (req, res) => {
+  const data = await Post.find();
+  const result = data.filter(
+    (e) => e.title.toLowerCase().replace(/ /g, "-") === req.params.id
+  );
+  res.status(200).send(result);
+});
 router.get("/:page", async (req, res) => {
   const { page } = req.params;
   const result = await Post.find()
