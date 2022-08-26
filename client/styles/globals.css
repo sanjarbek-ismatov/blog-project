@@ -22,16 +22,12 @@ a {
 ::-webkit-scrollbar-thumb {
   background-color: rgb(172, 171, 171);
 }
-div[theme="dark"] {
+body {
   background-color: #212121;
   color: #fff;
   min-height: 100vh;
 }
-dev[theme="light"] {
-  background-color: #fff;
-  color: #212121;
-  min-height: 100vh;
-}
+
 li {
   margin: 10px;
 }

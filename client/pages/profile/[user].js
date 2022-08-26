@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const User = ({ user }) => {
   return (
-    <>
+    <div className={style.main}>
       <NextSeo
         title={`${user.user.firstname} ${user.user.lastname}`}
         description={`${user.user.firstname} ${user.user.lastname} - MyBlog`}
@@ -44,7 +44,7 @@ const User = ({ user }) => {
           {user.user.email}
         </a>
       </header>
-      <main className={style.main}>
+      <main>
         <div className={style.posts}>
           <h1>Yozgan maqolalari:</h1>
           <ul className={style.ul}>
@@ -62,7 +62,7 @@ const User = ({ user }) => {
           </ul>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

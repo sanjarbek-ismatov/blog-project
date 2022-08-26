@@ -29,7 +29,7 @@ const Me = () => {
   if (state && state.profile.length !== 0) {
     const user = state.profile.data;
     return (
-      <div>
+      <div className={style.main}>
         <Head>
           <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
         </Head>
@@ -65,7 +65,7 @@ const Me = () => {
             {user.user.email}
           </a>
         </header>
-        <main className={style.main}>
+        <main>
           <div className={style.posts}>
             <h1>Yozgan maqolalari:</h1>
             <ul className={style.ul}>

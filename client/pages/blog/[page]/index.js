@@ -72,7 +72,7 @@ const Index = ({ data }) => {
                         alt="blog image"
                       />
                       <div className={style.desc}>
-                        <h1>{e.title}</h1>
+                        <h2>{e.title}</h2>
                         <p>
                           {$(e.date).toDateString()},{" "}
                           {$(e.date).toLocaleTimeString()}

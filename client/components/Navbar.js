@@ -1,6 +1,6 @@
 import style from "../styles/Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = ({ handleChange, value, profile }) => {
   return (
@@ -17,9 +17,8 @@ const Navbar = ({ handleChange, value, profile }) => {
           autoComplete="off"
         />
       </div>
-
       <a href="/">
-        <h1 className={style.h1}>Uyga qaytish</h1>
+        <FontAwesomeIcon className={style.icon} icon={faHouse} />
       </a>
       <div className={style.content}>
         {(profile && profile.profile.length !== 0 && (

@@ -28,6 +28,11 @@ const Create = () => {
       state.status ? router.replace("/blog/1") : "";
     }, 1000);
   }, [state]);
+  useEffect(() => {
+    if (!localStorage.token) {
+      router.replace("/login");
+    }
+  }, []);
   return (
     <div className={style.main}>
       <Head>

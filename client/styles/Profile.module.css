@@ -12,7 +12,7 @@
   top: 100px;
 }
 .main {
-  padding-top: 30px;
+  min-height: 90vh;
   text-align: center;
 }
 .email {

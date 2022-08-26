@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -58,31 +58,32 @@ const Index = () => {
           </div>
         </nav>
       </header>
-      <main>
-        <main className={style.main}>
-          <div className={style.mainDiv}>
-            <h1 time="1000" smooth="true" className={style.h1}>
-              Assalomu alaykum
-            </h1>
-            <hr smooth="true" />
-            <h2 smooth="true" className={style.h2}>
-              My blog platformasiga xush kelibsiz!
-            </h2>
-            <div className={style.buttons}>
-              <a href="/blog/1">
-                <button className={style.button}>
-                  <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
-                </button>
-              </a>
 
-              <a href="/post/create">
-                <button className={style.button}>
-                  <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
-                </button>
-              </a>
-            </div>
+      <main className={style.main}>
+        <div className={style.mainDiv}>
+          <h1 time="1000" smooth="true" className={style.h1}>
+            Assalomu alaykum
+          </h1>
+          <hr smooth="true" />
+          <h2 smooth="true" className={style.h2}>
+            My blog platformasiga xush kelibsiz!
+          </h2>
+          <div className={style.buttons}>
+            <a href="/blog/1">
+              <button className={style.button}>
+                <FontAwesomeIcon className={style.icon} icon={faBookOpen} />{" "}
+                O'qish
+              </button>
+            </a>
+
+            <a href="/post/create">
+              <button className={style.button}>
+                <FontAwesomeIcon className={style.icon} icon={faSquarePlus} />{" "}
+                Yaratish
+              </button>
+            </a>
           </div>
-        </main>
+        </div>
       </main>
     </>
   );

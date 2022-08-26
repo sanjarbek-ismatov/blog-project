@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
-import useTheme from "./hooks/useTheme";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useTheme();
-
-  return <div>{children}</div>;
+  return (
+    <div>
+      {children}
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;
