@@ -56,11 +56,9 @@ const Post = ({ data }) => {
               />
             </div>
             <div className={style.content}>
-              <ReactMarkdown
-                className={style.p}
-                children={e.content}
-                rehypePlugins={[rehypeRaw]}
-              />
+              <ReactMarkdown className={style.p} rehypePlugins={[rehypeRaw]}>
+                {e.content}
+              </ReactMarkdown>
             </div>
             <div className={style.lowerContent}>
               <img className={style.profile} src={data.user.profile} />
