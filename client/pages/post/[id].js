@@ -3,7 +3,7 @@ import style from "../../styles/Post.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
-
+import Head from "next/head";
 const Post = ({ data }) => {
   return (
     <>
@@ -29,6 +29,12 @@ const Post = ({ data }) => {
           ],
         }}
       />
+      <Head>
+        <meta
+          name="keywords"
+          content={`${data.result[0].title}, ${data.result[0].title} my blog uz, myblog, maqola, maqolalar, uzbekistan, uz, blog, sayt`}
+        />
+      </Head>
       {data.result.map((e, i) => {
         return (
           <div key={i} className={style.post}>

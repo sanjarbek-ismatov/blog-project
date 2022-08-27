@@ -11,13 +11,17 @@ import {
   faRightToBracket,
   faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
+
 const Index = () => {
   const router = useRouter();
 
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="https://i.ibb.co/1XTN2WY/icon.png" />
+        <meta
+          name="keywords"
+          content="myblog, maqola, maqolalar, uzbekistan, uz, blog, sayt"
+        />
       </Head>
       <header>
         <nav className={style.nav}>

@@ -2,6 +2,7 @@ import style from "../../styles/Profile.module.css";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 const User = ({ user }) => {
   return (
     <div className={style.main}>
@@ -26,6 +27,12 @@ const User = ({ user }) => {
           ],
         }}
       />
+      <Head>
+        <meta
+          name="keywords"
+          content={`${user.user.firstname}, ${user.user.lastname}, ${user.user.firstname} ${user.user.lastname} myblog, ${user.user.username}, myblog, maqola, maqolalar, uzbekistan, uz, blog, sayt`}
+        />
+      </Head>
       <header className={style.header}>
         <hr className={style.line} />
         <Image
