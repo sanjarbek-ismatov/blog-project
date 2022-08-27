@@ -1,14 +1,15 @@
 const express = require("express");
 const Post = require("../models/getAllPost");
-const { poster, postValidator } = require("../start/validator");
+const { poster } = require("../start/validator");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
 const getProfile = require("../start/getProfile");
 
 const authorValidator = require("../start/authorValidator");
+const User = require("../models/UserModel");
 const router = express.Router();
 router.get("/", async (req, res) => {
-  const result = await Post.find();
+  const result = await Post.find().sort("-date");
   res.status(200).send(result);
 });
 router.get("/page/:id", async (req, res) => {
@@ -16,7 +17,12 @@ router.get("/page/:id", async (req, res) => {
   const result = data.filter(
     (e) => e.title.toLowerCase().replace(/ /g, "-") === req.params.id
   );
-  res.status(200).send(result);
+  const user = await User.findById(result[0].author);
+
+  res.status(200).send({
+    result,
+    user,
+  });
 });
 router.get("/:page", async (req, res) => {
   const { page } = req.params;

@@ -1,35 +1,35 @@
 import React from "react";
 import style from "../../styles/Post.module.css";
 import Image from "next/image";
-
+import Link from "next/link";
 import { NextSeo } from "next-seo";
 
 const Post = ({ data }) => {
   return (
     <>
       <NextSeo
-        title={`${data[0].title}`}
+        title={`${data.result[0].title}`}
         description={"My blog -  maqolalar sayti"}
         additionalMetaTags={[
           {
             name: "keywords",
-            content: `${data[0].title}, My blog -  maqolalar sayti, MyBlog, Maqola`,
+            content: `${data.result[0].title}, My blog -  maqolalar sayti, MyBlog, Maqola`,
           },
         ]}
         openGraph={{
           type: "website",
           url: "https://my-blog-uz.vercel.app/",
           description: "My blog -  maqolalar sayti",
-          title: `${data[0].title}`,
+          title: `${data.result[0].title}`,
 
           images: [
             {
-              url: data[0].image,
+              url: data.result[0].image,
             },
           ],
         }}
       />
-      {data.map((e, i) => {
+      {data.result.map((e, i) => {
         return (
           <div key={i} className={style.post}>
             <h1 key={i} className={style.h1}>
@@ -50,6 +50,12 @@ const Post = ({ data }) => {
               <p className={style.p}>{e.content}</p>
             </div>
             <div className={style.lowerContent}>
+              <img className={style.profile} src={data.user.profile} />
+              <Link href={`/profile/${data.user.username}`}>
+                <a>
+                  {data.user.firstname} {data.user.lastname}
+                </a>
+              </Link>
               <p>{new Date(e.date).toLocaleTimeString()}</p>
             </div>
           </div>

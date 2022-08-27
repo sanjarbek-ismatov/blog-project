@@ -23,7 +23,15 @@
   padding: 30px 0;
 }
 .lowerContent {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+}
+.profile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
 }
 .icon {
   font-size: 30px;
