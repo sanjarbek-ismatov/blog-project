@@ -56,14 +56,19 @@ const Post = ({ data }) => {
                 layout="responsive"
               />
             </div>
-            <div className={style.content}>
-              <ReactMarkdown
+            <div
+              dangerouslySetInnerHTML={{
+                __html: <div className={style.p}>{e.content}</div>,
+              }}
+              className={style.content}
+            >
+              {/* <ReactMarkdown
                 remarkPlugins={[gfm]}
                 className={style.p}
                 rehypePlugins={[rehypeRaw]}
               >
-                <p className={style.p}>{e.content}</p>
-              </ReactMarkdown>
+                {`${e.content}`}
+              </ReactMarkdown> */}
             </div>
             <div className={style.lowerContent}>
               <img className={style.profile} src={data.user.profile} />
