@@ -64,7 +64,7 @@ const Create = () => {
           required
         />
         <textarea
-          placeholder="Maqola uchun maydon"
+          placeholder="Maqola uchun maydon. Qo'shimcha imkoniyatlar uchun HTML holatda ham kiritishingiz mumkin."
           className={style.area}
           type="text"
           autoComplete="off"
