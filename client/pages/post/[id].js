@@ -6,6 +6,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import gfm from "remark-gfm";
 
 const Post = ({ data }) => {
   return (
@@ -55,10 +56,19 @@ const Post = ({ data }) => {
                 layout="responsive"
               />
             </div>
-            <div className={style.content}>
-              <ReactMarkdown className={style.p} rehypePlugins={[rehypeRaw]}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: e.content,
+              }}
+              className={style.content}
+            >
+              {/* <ReactMarkdown
+                remarkPlugins={[gfm]}
+                className={style.p}
+                rehypePlugins={[rehypeRaw]}
+              >
                 {`${e.content}`}
-              </ReactMarkdown>
+              </ReactMarkdown> */}
             </div>
             <div className={style.lowerContent}>
               <img className={style.profile} src={data.user.profile} />
