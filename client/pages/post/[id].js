@@ -4,9 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
-import gfm from "remark-gfm";
 
 const Post = ({ data }) => {
   return (
@@ -58,18 +55,10 @@ const Post = ({ data }) => {
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: `<div>${e.content}</div>`,
+                __html: e.content,
               }}
               className={style.content}
-            >
-              {/* <ReactMarkdown
-                remarkPlugins={[gfm]}
-                className={style.p}
-                rehypePlugins={[rehypeRaw]}
-              >
-                {`${e.content}`}
-              </ReactMarkdown> */}
-            </div>
+            ></div>
             <div className={style.lowerContent}>
               <img className={style.profile} src={data.user.profile} />
               <Link href={`/profile/${data.user.username}`}>
