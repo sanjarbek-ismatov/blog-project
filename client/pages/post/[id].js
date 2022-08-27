@@ -58,7 +58,7 @@ const Post = ({ data }) => {
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: <div className={style.p}>{e.content}</div>,
+                __html: `<div>${e.content}</div>`,
               }}
               className={style.content}
             >
