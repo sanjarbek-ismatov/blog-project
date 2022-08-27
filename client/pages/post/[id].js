@@ -6,7 +6,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import remarkGfm from "remark-gfm";
+
 const Post = ({ data }) => {
   return (
     <>
@@ -60,7 +60,6 @@ const Post = ({ data }) => {
                 className={style.p}
                 children={e.content}
                 rehypePlugins={[rehypeRaw]}
-                remarkPlugins={[[remarkGfm]]}
               />
             </div>
             <div className={style.lowerContent}>
