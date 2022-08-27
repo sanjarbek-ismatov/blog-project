@@ -57,7 +57,7 @@ const Post = ({ data }) => {
             </div>
             <div className={style.content}>
               <ReactMarkdown className={style.p} rehypePlugins={[rehypeRaw]}>
-                {e.content}
+                {`${e.content}`}
               </ReactMarkdown>
             </div>
             <div className={style.lowerContent}>
