@@ -53,12 +53,14 @@ const Post = ({ data }) => {
                 layout="responsive"
               />
             </div>
+
             <div
+              className={style.content}
               dangerouslySetInnerHTML={{
                 __html: e.content,
               }}
-              className={style.content}
             ></div>
+
             <div className={style.lowerContent}>
               <img className={style.profile} src={data.user.profile} />
               <Link href={`/profile/${data.user.username}`}>
