@@ -30,6 +30,11 @@
   color: inherit;
   font-size: 20px;
 }
+.link {
+  color: inherit;
+  text-decoration: underline;
+  padding: 5px 0;
+}
 .input {
   width: 100%;
   padding: 10px 10px;

@@ -3,6 +3,7 @@ import style from "../../styles/Register.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import useRouter from "next/router";
 import Head from "next/head";
+import Link from "next/link";
 import { createPostThunk } from "../../state/thunks/createPostThunk";
 import Spinner from "../../components/Spinner";
 const Create = () => {
@@ -75,6 +76,9 @@ const Create = () => {
           Yaratish
         </button>
       </form>
+      <Link href="/docs/maqola">
+        <a className={style.link}>HTML uchun qo'llanma</a>
+      </Link>
       {!error && !auth && <Spinner />}
       {(error && <p>{error}</p>) || (auth && <p>{auth}</p>)}
     </div>
