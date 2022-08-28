@@ -100,7 +100,10 @@ const Maqola = () => {
       </div>
       <div className="ichki-oraliq">
         <h2>Moslashuvchan rasm</h2>
-        <img className="rasm" src="rasm" />
+        <img
+          className="rasm"
+          src="https://wallpaperaccess.com/full/138728.jpg"
+        />
         <div
           className="code"
           style={{
@@ -122,20 +125,16 @@ const Maqola = () => {
           <br /> <span style={{ color: "#c695c6" }}>src</span>
           <span style={{ color: "#a6acb9" }}>=</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
-          <span style={{ color: "#99c794" }}>https</span>
-          <span style={{ color: "#a6acb9" }}>://</span>
-          <span style={{ color: "#99c794" }}>wallpaperaccess.com</span>
-          <span style={{ color: "#a6acb9" }}>/</span>
-          <span style={{ color: "#99c794" }}>full</span>
-          <span style={{ color: "#a6acb9" }}>/</span>
-          <span style={{ color: "#99c794" }}>138728.jpg</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
           <br /> <span style={{ color: "#5fb4b4" }}>/&gt;</span>
         </div>
       </div>
 
       <div className="ichki-oraliq">
-        <img className="kichik-rasm" src="rasm" />
+        <img
+          className="kichik-rasm"
+          src="https://wallpaperaccess.com/full/138728.jpg"
+        />
         <div
           style={{
             whiteSpace: "pre-wrap",
@@ -157,20 +156,18 @@ const Maqola = () => {
           <br /> <span style={{ color: "#c695c6" }}>src</span>
           <span style={{ color: "#a6acb9" }}>=</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
-          <span style={{ color: "#99c794" }}>https</span>
-          <span style={{ color: "#a6acb9" }}>://</span>
-          <span style={{ color: "#99c794" }}>wallpaperaccess.com</span>
-          <span style={{ color: "#a6acb9" }}>/</span>
-          <span style={{ color: "#99c794" }}>full</span>
-          <span style={{ color: "#a6acb9" }}>/</span>
-          <span style={{ color: "#99c794" }}>138728.jpg</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
           <br /> <span style={{ color: "#5fb4b4" }}>/&gt;</span>
         </div>
       </div>
       <div className="ichki-oraliq">
         <h2>Havola uchun</h2>
-        <a className="link" href="link" target="_blank" rel="noreferrer">
+        <a
+          className="link"
+          href="https://instagram.com/sanjarbek_ismatov"
+          target="_blank"
+          rel="noreferrer"
+        >
           @sanjarbek_ismatov
         </a>
         <div
@@ -194,11 +191,6 @@ const Maqola = () => {
           <br /> <span style={{ color: "#c695c6" }}>href</span>
           <span style={{ color: "#a6acb9" }}>=</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
-          <span style={{ color: "#99c794" }}>https</span>
-          <span style={{ color: "#a6acb9" }}>://</span>
-          <span style={{ color: "#99c794" }}>instagram.com</span>
-          <span style={{ color: "#a6acb9" }}>/</span>
-          <span style={{ color: "#99c794" }}>sanjarbek_ismatov</span>
           <span style={{ color: "#5fb4b4" }}>"</span>
           <br /> <span style={{ color: "#c695c6" }}>target</span>
           <span style={{ color: "#a6acb9" }}>=</span>
