@@ -100,10 +100,7 @@ const Maqola = () => {
       </div>
       <div className="ichki-oraliq">
         <h2>Moslashuvchan rasm</h2>
-        <img
-          className="rasm"
-          src="https://wallpaperaccess.com/full/138728.jpg"
-        />
+        <img className="rasm" src="rasm" />
         <div
           className="code"
           style={{
@@ -138,10 +135,7 @@ const Maqola = () => {
       </div>
 
       <div className="ichki-oraliq">
-        <img
-          className="kichik-rasm"
-          src="https://wallpaperaccess.com/full/138728.jpg"
-        />
+        <img className="kichik-rasm" src="rasm" />
         <div
           style={{
             whiteSpace: "pre-wrap",
@@ -176,12 +170,7 @@ const Maqola = () => {
       </div>
       <div className="ichki-oraliq">
         <h2>Havola uchun</h2>
-        <a
-          className="link"
-          href="https://instagram.com/sanjarbek_ismatov"
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a className="link" href="link" target="_blank" rel="noreferrer">
           @sanjarbek_ismatov
         </a>
         <div
