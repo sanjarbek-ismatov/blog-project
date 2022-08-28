@@ -180,6 +180,7 @@ const Maqola = () => {
           className="link"
           href="https://instagram.com/sanjarbek_ismatov"
           target="_blank"
+          rel="noreferrer"
         >
           @sanjarbek_ismatov
         </a>
