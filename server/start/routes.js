@@ -6,13 +6,16 @@ const posts = require("../routes/post");
 const getMe = require("../routes/getMe");
 const profile = require("../routes/profile");
 const cors = require("cors");
-
+const helmet = require("helmet");
+const compression = require("compression");
 module.exports = (app) => {
   app.use(
     cors({
       exposedHeaders: "x-token",
     })
   );
+  app.use(helmet());
+  app.use(compression());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/api/post", postUser);
