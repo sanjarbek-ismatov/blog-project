@@ -1,4 +1,4 @@
-# Social media api project
+# blog project
 
 # USED
 
