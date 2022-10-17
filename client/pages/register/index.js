@@ -87,9 +87,10 @@ const Create = () => {
           required
         />
         <input
-          placeholder="URL formatdagi rasm"
+          placeholder="Rasm"
+          type="file"
           className={style.input}
-          type="url"
+          accept="image/*"
           name="image"
         />
         <button className={style.button} type="submit">
