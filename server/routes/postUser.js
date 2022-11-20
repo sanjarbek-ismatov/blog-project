@@ -15,7 +15,14 @@ const passwordOptions = {
 };
 router.post("/", async (req, res) => {
   const { error } = postValidator(
-    _.pick(req.body, ["username", "lastname", "email", "password", "firstname"])
+    _.pick(req.body, [
+      "username",
+      "profile",
+      "lastname",
+      "email",
+      "password",
+      "firstname",
+    ])
   );
   if (error) {
     return res.status(400).send(error.details[0].message);

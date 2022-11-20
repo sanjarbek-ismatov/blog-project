@@ -1,6 +1,6 @@
 const express = require("express");
 const Post = require("../models/getAllPost");
-
+const { poster } = require("../start/validator");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
 const getProfile = require("../start/getProfile");
@@ -52,6 +52,9 @@ router.put("/update/:id", auth, async (req, res) => {
   res.status(200).send(true);
 });
 router.post("/create", auth, async (req, res) => {
+  const { error } = poster(req.body);
+
+  if (error) return res.status(400).send(error.details[0].message);
   const post = await Post.createPost(req.body, _.pick(req.user, ["_id"]));
   res.status(201).send(post);
 });

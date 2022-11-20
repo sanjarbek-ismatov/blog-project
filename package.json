@@ -4,7 +4,6 @@
   "description": "Bu loyiha mening birinchi full stack loyiham",
   "main": "index.js",
   "scripts": {
-    "client": "cd client && npm run dev",
     "start": "cd server && yarn start",
     "heroku-postbuild": "cd server && yarn"
   },

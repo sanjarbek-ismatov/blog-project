@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   profile: {
-    type: mongoose.SchemaTypes.ObjectId,
+    type: String,
+    default: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
   },
   firstname: {
     type: String,

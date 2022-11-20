@@ -16,7 +16,7 @@ const postSchema = new mongoose.Schema({
 
 const Post = mongoose.model("post", postSchema);
 async function createPost({ title, content, image }, author) {
-  const post = new Post({
+  const post = await new Post({
     title: title,
     content: content,
     image: image,

@@ -48,10 +48,10 @@ const Create = () => {
         <h1 className={style.h1}>Maqola yozish sahifasi</h1>
 
         <input
+          placeholder="Full HD rasm"
           className={style.input}
-          type="file"
+          type="url"
           name="image"
-          accept="image/*"
           autoComplete="off"
           required
         />
