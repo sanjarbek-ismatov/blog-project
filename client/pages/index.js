@@ -65,13 +65,11 @@ const Index = () => {
 
       <main className={style.main}>
         <div className={style.mainDiv}>
-          <h1 time="1000" smooth="true" className={style.h1}>
+          <h1 data-aos="fade-up" className={style.h1}>
             Assalomu alaykum
           </h1>
-          <hr smooth="true" />
-          <h2 smooth="true" className={style.h2}>
-            My blog platformasiga xush kelibsiz!
-          </h2>
+          <hr />
+          <h2 className={style.h2}>My blog platformasiga xush kelibsiz!</h2>
           <div className={style.buttons}>
             <a href="/blog/1">
               <button className={style.button}>

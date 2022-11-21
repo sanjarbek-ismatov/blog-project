@@ -39,12 +39,7 @@ const Create = () => {
       <Head>
         <title>Maqola yozish</title>
       </Head>
-      <form
-        smooth="true"
-        delay="1000"
-        className={style.form}
-        onSubmit={handleSubmit}
-      >
+      <form data-aos="fade-up" className={style.form} onSubmit={handleSubmit}>
         <h1 className={style.h1}>Maqola yozish sahifasi</h1>
 
         <input

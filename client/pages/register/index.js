@@ -39,12 +39,7 @@ const Create = () => {
         <title>Ro'yhatdan o'tish</title>
       </Head>
 
-      <form
-        smooth="true"
-        delay="1000"
-        className={style.form}
-        onSubmit={handleSubmit}
-      >
+      <form data-aos="fade-up" className={style.form} onSubmit={handleSubmit}>
         <h1 className={style.h1}>Ro'yhatdan o'tish</h1>
         <input
           placeholder="Ismingiz"

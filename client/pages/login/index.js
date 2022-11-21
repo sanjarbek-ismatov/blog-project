@@ -37,12 +37,7 @@ const Create = () => {
       <Head>
         <title>Tizimga kirish</title>
       </Head>
-      <form
-        smooth="true"
-        delay="1000"
-        className={style.form}
-        onSubmit={handleSubmit}
-      >
+      <form data-aos="fade-up" className={style.form} onSubmit={handleSubmit}>
         <h1 className={style.h1}>Tizimga kirish sahifasi</h1>
 
         <input
