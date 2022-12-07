@@ -53,10 +53,10 @@ li {
   color: rgba(255, 255, 255, 0.719);
   font-family: sans-serif;
 }
-[smooth="true"] {
+.smooth {
   animation: onload 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
-[time="1000"] {
+.time {
   animation: onload 1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 

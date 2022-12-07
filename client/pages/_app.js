@@ -3,7 +3,13 @@ import Layout from "../components/Layout";
 import { Provider } from "react-redux";
 import { store } from "../state/store";
 import { DefaultSeo } from "next-seo";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function MyApp({ Component, pageProps }) {
+  typeof window !== "undefined" &&
+    AOS.init({
+      duration: 500,
+    });
   return (
     <>
       <DefaultSeo
