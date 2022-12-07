@@ -10,7 +10,7 @@ import { getProfileMeThunk } from "../../../state/thunks/getProfileMeThunk";
 export async function getServerSideProps({ params }) {
   const { page } = params;
   const data = await fetch(
-    `https://blog-api-uz.herokuapp.com/api/get/post/${page}`,
+    `${process.env.SERVER_URL}/api/get/post/${page}`,
     {
       mode: "no-cors",
     }

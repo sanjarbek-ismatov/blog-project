@@ -9,7 +9,8 @@ const Create = () => {
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
-    await Axios.post("https://blog-api-uz.herokuapp.com/api/post", body)
+    await Axios.post(`https://blog-project-haoi.onrender.com/api/post`, body)
+    
       .then((data) => {
         setAuth(data.data);
         setError("");

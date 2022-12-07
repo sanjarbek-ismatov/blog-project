@@ -9,7 +9,7 @@ const Create = () => {
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
-    await Axios.post("https://blog-api-uz.herokuapp.com/api/login", body)
+    await Axios.post(`https://blog-project-haoi.onrender.com/api/login`, body)
       .then((data) => {
         setAuth(data.data);
         localStorage.setItem("token", data.headers["x-token"]);

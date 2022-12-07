@@ -80,7 +80,7 @@ const Post = ({ data }) => {
 export default Post;
 export async function getServerSideProps({ params }) {
   const res = await fetch(
-    `https://blog-api-uz.herokuapp.com/api/get/post/page/${params.id}`
+    `${process.env.SERVER_URL}/api/get/post/page/${params.id}`
   ).then((res) => res.json());
 
   return {
