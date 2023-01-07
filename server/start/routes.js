@@ -7,6 +7,7 @@ const getMe = require("../routes/getMe");
 const profile = require("../routes/profile");
 const cors = require("cors");
 const helmet = require("helmet");
+const morgan = require("morgan");
 const compression = require("compression");
 module.exports = (app) => {
   app.use(
@@ -23,6 +24,6 @@ module.exports = (app) => {
   app.use("/api/get/post", posts);
   app.use("/api/profile/me", getMe);
   app.use("/api/profile", profile);
-
+  app.use(morgan("tiny"));
   app.use(error);
 };

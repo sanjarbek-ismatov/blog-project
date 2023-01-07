@@ -1,20 +1,16 @@
-import style from "../../../styles/Blog.module.css";
+import style from "styles/Blog.module.css";
 import { useState, useEffect } from "react";
-import Navbar from "../../../components/Navbar";
-import Image from "next/image";
-import Panigation from "../../../components/Panigation";
-import Link from "next/link";
+import Navbar from "components/Navbar";
+import Post from "components/Index/Post";
+import Panigation from "components/Panigation";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { getProfileMeThunk } from "../../../state/thunks/getProfileMeThunk";
+import { getProfileMeThunk } from "state/thunks/getProfileMeThunk";
 export async function getServerSideProps({ params }) {
   const { page } = params;
-  const data = await fetch(
-    `${process.env.SERVER_URL}/api/get/post/${page}`,
-    {
-      mode: "no-cors",
-    }
-  ).then((res) => res.json());
+  const data = await fetch(`${process.env.SERVER_URL}/api/get/post/${page}`, {
+    mode: "no-cors",
+  }).then((res) => res.json());
 
   return {
     props: {
@@ -56,32 +52,7 @@ const Index = ({ data }) => {
           data
             .filter((e) => e.title.toLowerCase().includes(text))
             .map((e, i) => {
-              return (
-                <Link
-                  key={i}
-                  href={`/post/${e.title.toLowerCase().replace(/ /g, "-")}`}
-                >
-                  <a>
-                    <div data-aos="fade-up" className={style.post}>
-                      <Image
-                        loader={() => e.image}
-                        src={e.image}
-                        className={style.image}
-                        width={1000}
-                        height={600}
-                        alt="blog image"
-                      />
-                      <div className={style.desc}>
-                        <h2>{e.title}</h2>
-                        <p>
-                          {$(e.date).toDateString()},{" "}
-                          {$(e.date).toLocaleTimeString()}
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                </Link>
-              );
+              return <Post key={i} element={e} date={$} />;
             })
         )}
       </main>

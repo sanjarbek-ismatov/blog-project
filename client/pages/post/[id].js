@@ -79,10 +79,17 @@ const Post = ({ data }) => {
 
 export default Post;
 export async function getServerSideProps({ params }) {
+  console.log(params.id);
   const res = await fetch(
     `${process.env.SERVER_URL}/api/get/post/page/${params.id}`
   ).then((res) => res.json());
-
+  if (!res) {
+    return {
+      props: {
+        data: null,
+      },
+    };
+  }
   return {
     props: {
       data: res,

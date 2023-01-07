@@ -17,6 +17,7 @@ router.get("/page/:id", async (req, res) => {
   const result = data.filter(
     (e) => e.title.toLowerCase().replace(/ /g, "-") === req.params.id
   );
+  if (!result || result.length === 0) return null;
   const user = await User.findById(result[0].author);
 
   res.status(200).send({
