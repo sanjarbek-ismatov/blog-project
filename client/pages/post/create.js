@@ -16,12 +16,12 @@ const Create = () => {
     setAuth("");
     setError("");
     e.preventDefault();
-    const body = {
-      image: e.target["0"].value,
-      title: e.target["1"].value,
-      content: e.target["2"].value,
-    };
-    dispatch(createPostThunk(body));
+
+    const form = new FormData();
+    form.append("image", e.target["0"].files[0]);
+    form.append("title", e.target["1"].value);
+    form.append("content", e.target["2"].value);
+    dispatch(createPostThunk(form));
   };
   useEffect(() => {
     state.status ? setAuth("Sahifa yaratildi") && setError(false) : "";
@@ -39,15 +39,21 @@ const Create = () => {
       <Head>
         <title>Maqola yozish</title>
       </Head>
-      <form data-aos="fade-up" className={style.form} onSubmit={handleSubmit}>
+      <form
+        encType="multipart/form-data"
+        data-aos="fade-up"
+        className={style.form}
+        onSubmit={handleSubmit}
+      >
         <h1 className={style.h1}>Maqola yozish sahifasi</h1>
 
         <input
           placeholder="Full HD rasm"
           className={style.input}
-          type="url"
+          type="file"
           name="image"
           autoComplete="off"
+          accept="image/*"
           required
         />
 

@@ -7,8 +7,8 @@ const storage = new GridFsStorage({
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buff) => {
-        if (err) throw err;
-        const filename = buff.toString("hex") + path.extname(file.originalName);
+        if (err) reject(err);
+        const filename = buff.toString("hex") + path.extname(file.originalname);
         const fileInfo = {
           filename,
           bucketName: "uploads",

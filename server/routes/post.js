@@ -4,7 +4,7 @@ const { poster } = require("../start/validator");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
 const getProfile = require("../start/getProfile");
-
+const { upload } = require("../models/storage");
 const authorValidator = require("../start/authorValidator");
 const User = require("../models/UserModel");
 const router = express.Router();
@@ -52,11 +52,14 @@ router.put("/update/:id", auth, async (req, res) => {
   await Post.findByIdAndUpdate(result, req.body);
   res.status(200).send(true);
 });
-router.post("/create", auth, async (req, res) => {
+router.post("/create", [auth, upload.single("image")], async (req, res) => {
   const { error } = poster(req.body);
-
   if (error) return res.status(400).send(error.details[0].message);
-  const post = await Post.createPost(req.body, _.pick(req.user, ["_id"]));
+  const post = await Post.createPost(
+    req.body,
+    _.pick(req.user, ["_id"]),
+    req.file
+  );
   res.status(201).send(post);
 });
 module.exports = router;

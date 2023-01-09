@@ -5,6 +5,7 @@ const { postValidator } = require("../start/validator");
 const _ = require("lodash");
 const passwordComplexity = require("joi-password-complexity");
 const User = require("../models/UserModel");
+const { upload } = require("../models/storage");
 const passwordOptions = {
   min: 8,
   max: 26,
@@ -13,7 +14,7 @@ const passwordOptions = {
   numeric: 1,
   symbol: 1,
 };
-router.post("/", async (req, res) => {
+router.post("/", upload.single("image"), async (req, res) => {
   const { error } = postValidator(
     _.pick(req.body, [
       "username",
@@ -42,7 +43,7 @@ router.post("/", async (req, res) => {
   if (findEmail || findUser) {
     return res.status(403).send("Email yoki username allaqachon olingan!");
   }
-  await createUser(req.body);
+  await createUser(req.body, req.file);
   res.status(201).send("Ro'yhatdan o'tdingiz");
 });
 

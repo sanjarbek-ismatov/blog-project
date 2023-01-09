@@ -3,11 +3,10 @@ const bcrypt = require("bcrypt");
 
 const _ = require("lodash");
 
-async function createUser(body) {
+async function createUser(body, file) {
   const user = new User(
     _.pick(body, [
       "username",
-      "profile",
       "firstname",
       "lastname",
       "email",
@@ -19,6 +18,7 @@ async function createUser(body) {
 
   const password = await bcrypt.hash(body.password, salt);
   user.password = password;
+  user.profile = file;
   await user.save();
   return user;
 }

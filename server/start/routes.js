@@ -13,9 +13,10 @@ module.exports = (app) => {
   app.use(
     cors({
       exposedHeaders: "x-token",
+      optionsSuccessStatus: 200,
     })
   );
-  app.use(helmet());
+  app.use(helmet({ crossOriginResourcePolicy: false }));
   app.use(compression());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
