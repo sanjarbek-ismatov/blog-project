@@ -18,7 +18,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   const { error } = postValidator(
     _.pick(req.body, [
       "username",
-      "profile",
+      "image",
       "lastname",
       "email",
       "password",

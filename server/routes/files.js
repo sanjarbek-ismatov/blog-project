@@ -4,13 +4,14 @@ const express = require("express");
 const router = express.Router();
 const connection = mongoose.connection;
 var gfs, gfb;
-connection.once("open", () => {
-  gfs = Grid(connection.db, mongoose.mongo);
+connection.once("open", async () => {
+  gfs = new Grid(connection.db, mongoose.mongo);
   gfs.collection("uploads");
   gfb = new mongoose.mongo.GridFSBucket(connection.db, {
     bucketName: "uploads",
   });
 });
+
 router.get("/files", async (req, res) => {
   gfs.files.find().toArray((err, files) => {
     if (err) throw err;
@@ -28,7 +29,8 @@ router.get("/image/:filename", async (req, res) => {
     if (err) throw err;
     if (file.contentType.includes("image")) {
       const readStream = gfb.openDowloadStream(file._id);
-      readStream.pipe(readStream);
+      readStream.pipe(res);
     }
   });
 });
+module.exports = router;

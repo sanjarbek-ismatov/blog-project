@@ -9,6 +9,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
+const files = require("../routes/files");
 module.exports = (app) => {
   app.use(
     cors({
@@ -25,6 +26,7 @@ module.exports = (app) => {
   app.use("/api/get/post", posts);
   app.use("/api/profile/me", getMe);
   app.use("/api/profile", profile);
+  app.use("/", files);
   app.use(morgan("tiny"));
   app.use(error);
 };

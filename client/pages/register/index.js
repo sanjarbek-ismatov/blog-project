@@ -10,7 +10,7 @@ const Create = () => {
   const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
     await Axios.post(`https://blog-project-haoi.onrender.com/api/post`, body)
-    
+
       .then((data) => {
         setAuth(data.data);
         setError("");
@@ -25,14 +25,14 @@ const Create = () => {
     setAuth("");
     setError("");
     e.preventDefault();
-    postUser({
-      firstname: e.target["0"].value,
-      lastname: e.target["1"].value,
-      username: e.target["2"].value,
-      email: e.target["3"].value,
-      password: e.target["4"].value,
-      profile: e.target["5"].value,
-    });
+    const form = new FormData();
+    form.append("firstname", e.target["0"].value);
+    form.append("lastname", e.target["1"].value);
+    form.append("username", e.target["2"].value);
+    form.append("email", e.target["3"].value);
+    form.append("password", e.target["4"].value);
+    form.append("image", e.target["5"].files[0]);
+    postUser(form);
   };
   return (
     <div className={style.main}>
@@ -83,9 +83,9 @@ const Create = () => {
           required
         />
         <input
-          placeholder="URL formatdagi rasm"
+          placeholder="Profile uchun rasm"
           className={style.input}
-          type="url"
+          type="file"
           name="image"
         />
         <button className={style.button} type="submit">
