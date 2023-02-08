@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import { getServerUrl } from "helper/getServerUrl";
 const User = ({ user }) => {
   return (
     <div className={style.main}>
@@ -75,9 +76,9 @@ const User = ({ user }) => {
 
 export default User;
 export async function getServerSideProps({ params }) {
-  const data = await fetch(
-    `https://blog-project-haoi.onrender.com/api/profile/${params.user}`
-  ).then((res) => res.json());
+  const data = await fetch(`${getServerUrl()}/api/profile/${params.user}`).then(
+    (res) => res.json()
+  );
   return {
     props: {
       user: data,

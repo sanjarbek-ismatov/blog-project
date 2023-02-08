@@ -10,6 +10,7 @@ import Link from "next/link";
 import { deletePostThunk } from "../../state/thunks/deletePostThunk";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getServerUrl } from "helper/getServerUrl";
 const Me = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -51,8 +52,8 @@ const Me = () => {
           <hr className={style.line} />
           <Image
             className={style.image}
-            src={user.user.profile}
-            loader={() => user.user.profile}
+            src={`${getServerUrl()}/image/${user.user.profile}`}
+            loader={() => `${getServerUrl()}/image/${user.user.profile}`}
             width={200}
             height={200}
             loading="lazy"

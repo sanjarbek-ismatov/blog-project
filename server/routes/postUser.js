@@ -43,7 +43,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   if (findEmail || findUser) {
     return res.status(403).send("Email yoki username allaqachon olingan!");
   }
-  await createUser(req.body, req.file);
+  await createUser(req.body, req.file.filename);
   res.status(201).send("Ro'yhatdan o'tdingiz");
 });
 
