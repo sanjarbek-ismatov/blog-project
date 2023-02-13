@@ -6,11 +6,12 @@ import Panigation from "components/Panigation";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileMeThunk } from "state/thunks/getProfileMeThunk";
+import { getServerUrl } from "helper/getServerUrl";
 export async function getServerSideProps({ params }) {
   const { page } = params;
-  const data = await fetch(`${process.env.SERVER_URL}/api/get/post/${page}`, {
-    mode: "no-cors",
-  }).then((res) => res.json());
+  const data = await fetch(`${getServerUrl()}/api/get/post/${page}`).then(
+    (res) => res.json()
+  );
 
   return {
     props: {

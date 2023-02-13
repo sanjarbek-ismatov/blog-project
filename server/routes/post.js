@@ -1,5 +1,5 @@
 const express = require("express");
-const Post = require("../models/getAllPost");
+const { createPost, Post } = require("../models/getAllPost");
 const { poster } = require("../start/validator");
 const auth = require("../middleware/auth");
 const _ = require("lodash");
@@ -55,11 +55,7 @@ router.put("/update/:id", auth, async (req, res) => {
 router.post("/create", [auth, upload.single("image")], async (req, res) => {
   const { error } = poster(req.body);
   if (error) return res.status(400).send(error.details[0].message);
-  const post = await Post.createPost(
-    req.body,
-    _.pick(req.user, ["_id"]),
-    req.file
-  );
+  const post = await createPost(req.body, _.pick(req.user, ["_id"]), req.file);
   res.status(201).send(post);
 });
 module.exports = router;

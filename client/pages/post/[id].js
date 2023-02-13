@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
+import { getServerUrl } from "helper/getServerUrl";
 
 const Post = ({ data }) => {
   return (
@@ -45,8 +46,8 @@ const Post = ({ data }) => {
             <div className={style.postImage}>
               <Image
                 className={style.image}
-                loader={() => e.image}
-                src={e.image}
+                loader={() => `${getServerUrl()}/image/${e.image}`}
+                src={`${getServerUrl()}/image/${e.image}`}
                 alt="post-image"
                 width={1000}
                 height={550}
@@ -62,7 +63,10 @@ const Post = ({ data }) => {
             ></div>
 
             <div className={style.lowerContent}>
-              <img className={style.profile} src={data.user.profile} />
+              <img
+                className={style.profile}
+                src={`https://blog-project-haoi.onrender.com/image/${data.user.profile}`}
+              />
               <Link href={`/profile/${data.user.username}`}>
                 <a>
                   {data.user.firstname} {data.user.lastname}

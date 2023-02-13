@@ -1,5 +1,5 @@
 const User = require("../models/UserModel");
-const Post = require("../models/getAllPost");
+const { Post } = require("../models/getAllPost");
 module.exports = async (id, username) => {
   if (id) {
     const user = await User.findById(id).select("-posts");

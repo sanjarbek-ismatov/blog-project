@@ -4,12 +4,13 @@ import Axios from "axios";
 import useRouter from "next/router";
 import Head from "next/head";
 import Spinner from "../../components/Spinner";
+import { getServerUrl } from "helper/getServerUrl";
 const Create = () => {
   const router = useRouter;
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
-    await Axios.post(`https://blog-project-haoi.onrender.com/api/login`, body)
+    await Axios.post(`${getServerUrl()}/api/login`, body)
       .then((data) => {
         setAuth(data.data);
         localStorage.setItem("token", data.headers["x-token"]);

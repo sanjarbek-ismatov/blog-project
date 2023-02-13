@@ -1,6 +1,7 @@
 import style from "../styles/Navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faHouse } from "@fortawesome/free-solid-svg-icons";
+import { getServerUrl } from "helper/getServerUrl";
 
 const Navbar = ({ handleChange, value, profile }) => {
   return (
@@ -25,7 +26,9 @@ const Navbar = ({ handleChange, value, profile }) => {
           <a href={`/profile/me`}>
             <img
               className={style.profile}
-              src={profile.profile.data.user.profile}
+              src={`${getServerUrl()}/image/${
+                profile.profile.data.user.profile
+              }`}
               title="profile"
             />
           </a>

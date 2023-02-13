@@ -6,7 +6,6 @@ const usePage = () => {
   const [count, setCount] = useState(0);
   const [pageAll, setPageAll] = useState([]);
   async function fetcher() {
-  
     await fetch(`https://blog-project-haoi.onrender.com/api/get/post/`)
       .then((res) => res.json())
       .then((datas) => {

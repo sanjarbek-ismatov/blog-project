@@ -15,21 +15,21 @@ const postSchema = new mongoose.Schema({
 });
 
 const Post = mongoose.model("post", postSchema);
-async function createPost({ title, content }, author, file) {
+module.exports.createPost = async function createPost(
+  { title, content },
+  author,
+  file
+) {
   const post = await new Post({
-    title: title,
-    content: content,
+    title,
+    content,
     image: file.filename,
-    author: author,
+    author,
   });
-
-  await post.save();
-
   const user = await User.findById(author);
-
   user.posts.push(post._id);
   await user.save();
+  await post.save();
   return post;
-}
-module.exports = Post;
-module.exports.createPost = createPost;
+};
+module.exports.Post = Post;

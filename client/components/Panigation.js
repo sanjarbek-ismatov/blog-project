@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
 import style from "../styles/Panigation.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import usePage from "./hooks/getPage";
-const Panigation = () => {
-  const [data, pageAll] = usePage();
-
+const Panigation = ({ data }) => {
+  const pageAll = ~~(data.length / 10) + (data.length % 10 !== 0 ? 1 : 0);
   const router = useRouter();
   const path = router.asPath.split("/")[2];
-
   const left = () => {
     if (path > 1) {
       router.push(`/blog/${path - 1}`);
@@ -21,29 +15,33 @@ const Panigation = () => {
       router.push(`/blog/${parseInt(path) + 1}`);
     }
   };
+
   return (
     <div>
       {}
       <div className={style.panigation}>
         <ul className={style.ul}>
-          <li className={style.li}>
-            <a onClick={left}>{"<"}</a>
+          <li>
+            <a className={style.li} onClick={left}>
+              {"<"}
+            </a>
           </li>
           {data &&
-            pageAll.map((e, i) => {
+            Array.from({ length: pageAll }, (_, i) => i + 1).map((e, i) => {
               return (
-                <li
-                  key={i}
-                  className={path - 1 === i ? style.active : style.li}
-                >
+                <li key={i}>
                   <Link href={"/blog/" + (i + 1)}>
-                    <a>{i + 1}</a>
+                    <a className={path - 1 === i ? style.active : style.li}>
+                      {i + 1}
+                    </a>
                   </Link>
                 </li>
               );
             })}
-          <li className={style.li}>
-            <a onClick={right}>{">"}</a>
+          <li>
+            <a className={style.li} onClick={right}>
+              {">"}
+            </a>
           </li>
         </ul>
       </div>

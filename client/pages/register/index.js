@@ -4,12 +4,13 @@ import Axios from "axios";
 import useRouter from "next/router";
 import Head from "next/head";
 import Spinner from "../../components/Spinner";
+import { getServerUrl } from "helper/getServerUrl";
 const Create = () => {
   const router = useRouter;
   const [error, setError] = useState("");
   const [auth, setAuth] = useState("Formani to'ldiring");
   const postUser = async (body) => {
-    await Axios.post(`http://localhost:4000/api/post`, body)
+    await Axios.post(`${getServerUrl()}/api/post`, body)
 
       .then((data) => {
         setAuth(data.data);
