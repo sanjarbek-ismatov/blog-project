@@ -65,7 +65,7 @@ const Post = ({ data }) => {
             <div className={style.lowerContent}>
               <img
                 className={style.profile}
-                src={`https://blog-project-haoi.onrender.com/image/${data.user.profile}`}
+                src={`${getServerUrl()}/image/${data.user.profile}`}
               />
               <Link href={`/profile/${data.user.username}`}>
                 <a>
@@ -85,7 +85,7 @@ export default Post;
 export async function getServerSideProps({ params }) {
   console.log(params.id);
   const res = await fetch(
-    `${process.env.SERVER_URL}/api/get/post/page/${params.id}`
+    `${getServerUrl()}/api/get/post/page/${params.id}`
   ).then((res) => res.json());
   if (!res) {
     return {
