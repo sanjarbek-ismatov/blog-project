@@ -10,6 +10,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const compression = require("compression");
 const files = require("../routes/files");
+const methodOverride = require('method-override')
 module.exports = (app) => {
   app.use(
     cors({
@@ -17,6 +18,7 @@ module.exports = (app) => {
       optionsSuccessStatus: 200,
     })
   );
+  app.use(methodOverride("_method"))
   app.use(helmet({ crossOriginResourcePolicy: false }));
   app.use(compression());
   app.use(express.json());
